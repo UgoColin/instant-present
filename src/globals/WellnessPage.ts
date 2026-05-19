@@ -4,6 +4,7 @@ import { defaultWellnessPage } from '@/lib/default-content'
 
 export const WellnessPage: GlobalConfig = {
   slug: 'wellness-page',
+  label: 'Page soins bien-être',
   access: {
     read: () => true,
   },

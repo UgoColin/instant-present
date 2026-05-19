@@ -4,6 +4,7 @@ import { defaultHomePage } from '@/lib/default-content'
 
 export const HomePage: GlobalConfig = {
   slug: 'home-page',
+  label: "Page d'accueil",
   access: {
     read: () => true,
   },

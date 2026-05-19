@@ -4,6 +4,7 @@ import { defaultNutritionPage } from '@/lib/default-content'
 
 export const NutritionPage: GlobalConfig = {
   slug: 'nutrition-page',
+  label: 'Page nutrition',
   access: {
     read: () => true,
   },

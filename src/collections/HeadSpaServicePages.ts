@@ -4,6 +4,10 @@ import { defaultHeadSpaClassicPage } from '@/lib/default-content'
 
 export const HeadSpaServicePages: CollectionConfig = {
   slug: 'head-spa-service-pages',
+  labels: {
+    singular: 'Page de prestation Head Spa',
+    plural: 'Pages de prestations Head Spa',
+  },
   access: {
     read: () => true,
   },

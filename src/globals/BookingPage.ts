@@ -4,6 +4,7 @@ import { defaultBookingPage } from '@/lib/default-content'
 
 export const BookingPage: GlobalConfig = {
   slug: 'booking-page',
+  label: 'Page contact et réservation',
   access: {
     read: () => true,
   },

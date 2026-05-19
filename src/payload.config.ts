@@ -2,6 +2,7 @@ import { sqliteAdapter } from '@payloadcms/db-sqlite'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload'
+import { fr } from 'payload/i18n/fr'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
@@ -29,6 +30,12 @@ export default buildConfig({
     user: Users.slug,
     importMap: {
       baseDir: path.resolve(dirname),
+    },
+  },
+  i18n: {
+    fallbackLanguage: 'fr',
+    supportedLanguages: {
+      fr,
     },
   },
   collections: [

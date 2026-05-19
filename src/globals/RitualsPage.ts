@@ -4,6 +4,7 @@ import { defaultRitualsPage } from '@/lib/default-content'
 
 export const RitualsPage: GlobalConfig = {
   slug: 'rituals-page',
+  label: 'Page rituels spécifiques',
   access: {
     read: () => true,
   },

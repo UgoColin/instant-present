@@ -4,6 +4,7 @@ import { defaultHeadSpaPage } from '@/lib/default-content'
 
 export const HeadSpaPage: GlobalConfig = {
   slug: 'head-spa-page',
+  label: 'Page Head Spa',
   access: {
     read: () => true,
   },

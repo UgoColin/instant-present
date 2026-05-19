@@ -4,6 +4,10 @@ import { defaultPrenatalMassagePage } from '@/lib/default-content'
 
 export const MaternityServicePages: CollectionConfig = {
   slug: 'maternity-service-pages',
+  labels: {
+    singular: 'Page de prestation maternité',
+    plural: 'Pages de prestations maternité',
+  },
   access: {
     read: () => true,
   },

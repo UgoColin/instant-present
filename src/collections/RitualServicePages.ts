@@ -4,6 +4,10 @@ import { defaultEmotionalReleasePage } from '@/lib/default-content'
 
 export const RitualServicePages: CollectionConfig = {
   slug: 'ritual-service-pages',
+  labels: {
+    singular: 'Page de rituel spécifique',
+    plural: 'Pages de rituels spécifiques',
+  },
   access: {
     read: () => true,
   },

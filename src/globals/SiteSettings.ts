@@ -4,6 +4,7 @@ import { defaultSiteSettings } from '@/lib/default-content'
 
 export const SiteSettings: GlobalConfig = {
   slug: 'site-settings',
+  label: 'Paramètres du site',
   access: {
     read: () => true,
   },

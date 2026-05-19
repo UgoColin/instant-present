@@ -4,6 +4,7 @@ import { defaultMaternityPage } from '@/lib/default-content'
 
 export const MaternityPage: GlobalConfig = {
   slug: 'maternity-page',
+  label: 'Page maternité',
   access: {
     read: () => true,
   },

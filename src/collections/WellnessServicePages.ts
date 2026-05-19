@@ -4,6 +4,10 @@ import { defaultAyurvedicMassagePage } from '@/lib/default-content'
 
 export const WellnessServicePages: CollectionConfig = {
   slug: 'wellness-service-pages',
+  labels: {
+    singular: 'Page de soin bien-être',
+    plural: 'Pages de soins bien-être',
+  },
   access: {
     read: () => true,
   },
