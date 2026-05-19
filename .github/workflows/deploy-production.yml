@@ -1,0 +1,78 @@
+name: Deploy Production
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --include=dev
+
+      - name: Type check
+        run: npx tsc --noEmit
+
+      - name: Start SSH agent
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}
+
+      - name: Add server to known_hosts
+        run: ssh-keyscan -p "${{ secrets.DEPLOY_PORT }}" -H "${{ secrets.DEPLOY_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Ensure remote directories exist
+        run: |
+          ssh -p "${{ secrets.DEPLOY_PORT }}" "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
+            "mkdir -p /var/www/instant-present/app /var/www/instant-present/shared /var/www/instant-present/shared/media /var/www/instant-present/shared/backups"
+
+      - name: Sync application files
+        run: |
+          rsync -az --delete \
+            --exclude ".git/" \
+            --exclude ".github/" \
+            --exclude ".env" \
+            --exclude ".env.*" \
+            --exclude "test.env" \
+            --exclude "node_modules/" \
+            --exclude ".next/" \
+            --exclude "coverage/" \
+            --exclude "playwright-report/" \
+            --exclude "test-results/" \
+            --exclude "blob-report/" \
+            --exclude "*.db" \
+            --exclude "*.db-shm" \
+            --exclude "*.db-wal" \
+            --exclude "*.sqlite" \
+            --exclude "*.sqlite-shm" \
+            --exclude "*.sqlite-wal" \
+            --exclude "*.sqlite3" \
+            --exclude "*.sqlite3-shm" \
+            --exclude "*.sqlite3-wal" \
+            -e "ssh -p ${{ secrets.DEPLOY_PORT }}" \
+            ./ "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/var/www/instant-present/app/"
+
+      - name: Run remote deploy
+        run: |
+          ssh -p "${{ secrets.DEPLOY_PORT }}" "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
+            "chmod +x /var/www/instant-present/app/scripts/deploy-remote.sh && /var/www/instant-present/app/scripts/deploy-remote.sh"

@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+APP_ROOT="/var/www/instant-present"
+APP_DIR="$APP_ROOT/app"
+SHARED_DIR="$APP_ROOT/shared"
+BACKUP_DIR="$SHARED_DIR/backups"
+DB_FILE="$SHARED_DIR/instant-present.db"
+MEDIA_DIR="$SHARED_DIR/media"
+ENV_FILE="$SHARED_DIR/.env"
+
+mkdir -p "$APP_DIR" "$MEDIA_DIR" "$BACKUP_DIR"
+
+if [ ! -f "$ENV_FILE" ]; then
+  echo "Missing required environment file: $ENV_FILE" >&2
+  exit 1
+fi
+
+ln -sfn "$ENV_FILE" "$APP_DIR/.env"
+ln -sfn "$MEDIA_DIR" "$APP_DIR/media"
+
+if [ -f "$DB_FILE" ]; then
+  cp "$DB_FILE" "$BACKUP_DIR/instant-present-$(date +%Y%m%d-%H%M%S).db"
+  ln -sfn "$DB_FILE" "$APP_DIR/instant-present.db"
+fi
+
+cd "$APP_DIR"
+
+npm ci --include=dev
+npm run generate:importmap
+rm -rf .next
+npm run build
+npx pm2 startOrReload ecosystem.config.cjs --env production
+npx pm2 save
