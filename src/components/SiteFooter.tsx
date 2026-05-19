@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Mail, MapPin, Phone } from 'lucide-react'
+import Link from 'next/link'
 
 import type { SiteSettingsData } from '@/lib/site-model'
 
@@ -39,9 +40,9 @@ export function SiteFooter({ siteSettings }: SiteFooterProps) {
             <ul className="space-y-3 text-sm font-light">
               {siteSettings.navigation.slice(0, 4).map((item) => (
                 <li key={`${item.title}-${item.href}-footer`}>
-                  <a className="transition-colors hover:text-brand-rose" href={item.href}>
+                  <Link className="transition-colors hover:text-brand-rose" href={item.href}>
                     {item.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -86,12 +87,12 @@ export function SiteFooter({ siteSettings }: SiteFooterProps) {
               </a>
             </div>
             <div className="mt-8">
-              <a
+              <Link
                 className="inline-block bg-brand-rose px-6 py-3 text-sm uppercase tracking-wider text-white transition-colors hover:bg-white hover:!text-brand-forest"
                 href={siteSettings.bookingCta.href}
               >
                 {siteSettings.bookingCta.label}
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -100,9 +101,9 @@ export function SiteFooter({ siteSettings }: SiteFooterProps) {
           <p>&copy; {new Date().getFullYear()} {siteSettings.siteName}. Tous droits réservés.</p>
           <div className="mt-4 flex space-x-4 md:mt-0">
             {siteSettings.legalLinks.map((link) => (
-              <a className="hover:text-white" href={link.href} key={`${link.label}-${link.href}`}>
+              <Link className="hover:text-white" href={link.href} key={`${link.label}-${link.href}`}>
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

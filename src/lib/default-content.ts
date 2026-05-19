@@ -14,7 +14,7 @@ export const defaultSiteSettings: SiteSettingsData = {
   contact: {
     address: '2 Rue de la Tranelle\n59249 Aubers',
     email: 'kvalquenart@gmail.com',
-    phone: '06 12 34 56 78',
+    phone: '06 61 85 56 89',
   },
   footerDescription:
     'Un espace dédié à votre bien-être corporel et émotionnel, pensé pour vous offrir une parenthèse de douceur et de reconnexion à soi.',
@@ -237,13 +237,13 @@ export const defaultHomePage: HomePageData = {
       'Un espace de douceur pour relâcher les tensions, apaiser l’esprit et se reconnecter à soi…',
   },
   services: {
-    ctaHref: '#',
+    ctaHref: '/contact',
     ctaLabel: 'Voir toutes les prestations',
     items: [
       {
         description:
           "Massages relaxants et enveloppants pour dénouer les tensions corporelles et apaiser l'esprit.",
-        href: '#',
+        href: '/soins-bien-etre',
         imageAlt: 'Soins bien-être',
         imageUrl: '/site-images/wellness-massage-back.jpg',
         title: 'Soins bien-être',
@@ -251,7 +251,7 @@ export const defaultHomePage: HomePageData = {
       {
         description:
           'Un accompagnement tout en douceur pour les futures et jeunes mamans, ainsi que pour bébé.',
-        href: '#',
+        href: '/maternite-parentalite',
         imageAlt: 'Maternité',
         imageUrl: '/site-images/home-maternity-baby.jpg',
         title: 'Maternité & Parentalité',
@@ -259,7 +259,7 @@ export const defaultHomePage: HomePageData = {
       {
         description:
           'Une évasion inspirée des traditions japonaises pour purifier le cuir chevelu et lâcher prise totalement.',
-        href: '#',
+        href: '/rituel-head-spa',
         imageAlt: 'Head Spa',
         imageUrl: '/site-images/head-spa-water.jpg',
         title: 'Rituel Head Spa',
@@ -271,19 +271,19 @@ export const defaultHomePage: HomePageData = {
   testimonials: {
     items: [
       {
-        author: 'Sophie L.',
+        author: 'Cindy Ducatillon',
         quote:
-          "Un moment hors du temps. L'écoute et la bienveillance de Krystel m'ont permis de lâcher prise totalement. Je recommande les yeux fermés.",
+          "Je suis hyper reconnaissante d’avoir rencontré Krystel pour un suivi en madérothérapie... J’ai eu des résultats incroyables, tout en bénéficiant de ses compétences en perte de poids et de ses conseils en nutrition. Cela m’a redonné envie de prendre soin de mon corps... Merci infiniment.",
       },
       {
-        author: 'Sophie L.',
+        author: 'Louise Degr',
         quote:
-          "Un moment hors du temps. L'écoute et la bienveillance de Krystel m'ont permis de lâcher prise totalement. Je recommande les yeux fermés.",
+          "Le massage à la cire de bougie chaude a été une expérience absolument incroyable... L’ambiance est apaisante, on se sent tout de suite à l’aise. Le massage était parfait, à la fois relaxant et profondément efficace... Je recommande à 100 % et je reviendrai sans hésiter.",
       },
       {
-        author: 'Sophie L.',
+        author: 'Laura Vandermalle',
         quote:
-          "Un moment hors du temps. L'écoute et la bienveillance de Krystel m'ont permis de lâcher prise totalement. Je recommande les yeux fermés.",
+          "Un très beau moment de relaxation pendant ma grossesse... Le massage prénatal m’a fait énormément de bien, autant physiquement que mentalement. J’ai vraiment réussi à lâcher prise pendant une heure entière... Merci pour ce moment hors du temps.",
       },
     ],
     scriptTitle: 'Témoignages',

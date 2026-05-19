@@ -286,12 +286,18 @@ const normalizeHomePage = (data?: HomePage | null): HomePageData => ({
     title: data?.hero?.title || defaultHomePage.hero.title,
   },
   services: {
-    ctaHref: data?.services?.ctaHref || defaultHomePage.services.ctaHref,
+    ctaHref:
+      data?.services?.ctaHref && data.services.ctaHref !== '#'
+        ? data.services.ctaHref
+        : defaultHomePage.services.ctaHref,
     ctaLabel: data?.services?.ctaLabel || defaultHomePage.services.ctaLabel,
     items:
       data?.services?.items?.map((item, index) => ({
         description: item.description,
-        href: item.href,
+        href:
+          item.href && item.href !== '#'
+            ? item.href
+            : defaultHomePage.services.items[index]?.href || defaultHomePage.services.items[0].href,
         imageAlt: item.imageAlt,
         imageUrl: getMediaUrl(
           item.image,

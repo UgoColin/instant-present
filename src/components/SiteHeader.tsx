@@ -72,7 +72,7 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
 
               return (
                 <div className="group relative" key={`${item.title}-${item.href}`}>
-                  <a
+                  <Link
                     className={[
                       'relative flex items-center whitespace-nowrap py-2 text-[13px] font-semibold uppercase tracking-[0.18em] transition-colors duration-300 after:absolute after:bottom-0 after:left-1/2 after:h-px after:w-full after:-translate-x-1/2 after:bg-brand-rose after:transition-all after:duration-300 2xl:text-sm 2xl:tracking-widest',
                       isActive
@@ -92,19 +92,19 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
                         ].join(' ')}
                       />
                     ) : null}
-                  </a>
+                  </Link>
 
                   {item.submenu?.length ? (
                     <div className="invisible absolute left-0 mt-2 w-56 origin-top-left border border-brand-rose/20 bg-brand-cream opacity-0 shadow-lg transition-all duration-300 group-hover:visible group-hover:opacity-100">
                       <div className="py-2">
                         {item.submenu.map((subItem) => (
-                          <a
+                          <Link
                             className="block px-4 py-2 text-sm text-brand-sage transition-colors hover:bg-brand-rose hover:text-white"
                             href={subItem.href}
                             key={`${subItem.title}-${subItem.href}`}
                           >
                             {subItem.title}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -139,7 +139,7 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
         <div className="space-y-3 px-4">
           {siteSettings.navigation.map((item) => (
             <div key={`${item.title}-${item.href}-mobile`}>
-              <a
+              <Link
                 className={[
                   'block border-b border-brand-rose/20 py-2 text-lg font-semibold transition-colors',
                   isItemActive(item.href, item.submenu) ? 'text-brand-rose' : 'text-brand-forest',
@@ -148,19 +148,19 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.title === 'Contact / RDV' ? 'Contact' : item.title}
-              </a>
+              </Link>
 
               {item.submenu?.length ? (
                 <div className="space-y-2 py-2 pl-4">
                   {item.submenu.map((subItem) => (
-                    <a
+                    <Link
                       className="block text-sm text-brand-sage hover:text-brand-rose"
                       href={subItem.href}
                       key={`${subItem.title}-${subItem.href}-mobile`}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       - {subItem.title}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               ) : null}

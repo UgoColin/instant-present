@@ -8,16 +8,16 @@ type FadeInSectionProps = {
   delay?: number
 }
 
-export function FadeInSection({
-  children,
-  className,
-  delay = 0,
-}: FadeInSectionProps) {
+export function FadeInSection({ children, className, delay = 0 }: FadeInSectionProps) {
   const [isVisible, setVisible] = useState(false)
   const domRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     const currentRef = domRef.current
+
+    if (!currentRef) {
+      return
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -28,25 +28,24 @@ export function FadeInSection({
           }
         })
       },
-      { threshold: 0.1 },
+      {
+        rootMargin: '0px 0px -10% 0px',
+        threshold: 0.15,
+      },
     )
 
-    if (currentRef) {
-      observer.observe(currentRef)
-    }
+    observer.observe(currentRef)
 
     return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef)
-      }
+      observer.disconnect()
     }
   }, [])
 
   return (
     <div
       className={[
-        'transition-all duration-1000 ease-out',
-        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0',
+        'transition-all duration-700 ease-out motion-reduce:transform-none motion-reduce:transition-none',
+        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0',
         className,
       ]
         .filter(Boolean)

@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { ChevronRight } from 'lucide-react'
+import Link from 'next/link'
 
 import type { HomePageData } from '@/lib/site-model'
 
@@ -197,20 +198,20 @@ export function HomePageContent({ content }: HomePageContentProps) {
               </div>
 
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <a
+                <Link
                   className="inline-flex items-center justify-center bg-brand-forest px-8 py-4 text-sm font-semibold uppercase tracking-widest !text-white transition-colors duration-300 hover:bg-brand-rose hover:!text-white"
                   href="/rituel-esprit"
                   style={{ color: '#ffffff' }}
                 >
                   Découvrir ce soin
                   <ChevronRight className="ml-2 h-4 w-4" />
-                </a>
-                <a
+                </Link>
+                <Link
                   className="inline-flex items-center justify-center border border-brand-forest px-8 py-4 text-sm uppercase tracking-widest text-brand-forest transition-colors duration-300 hover:bg-brand-forest hover:!text-white"
                   href="/contact"
                 >
                   Réserver
-                </a>
+                </Link>
               </div>
             </FadeInSection>
           </div>
@@ -239,7 +240,7 @@ export function HomePageContent({ content }: HomePageContentProps) {
           <div className="relative z-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {content.services.items.map((item, index) => (
               <FadeInSection delay={100 + index * 200} key={`${item.title}-${index}`}>
-                <div className="group cursor-pointer">
+                <Link className="group block cursor-pointer" href={item.href}>
                   <div className="relative mb-6 h-80 overflow-hidden">
                     <img
                       alt={item.imageAlt}
@@ -253,18 +254,18 @@ export function HomePageContent({ content }: HomePageContentProps) {
                   <span className="flex items-center text-sm uppercase tracking-widest text-brand-rose transition-colors group-hover:text-brand-forest">
                     En savoir plus <ChevronRight className="ml-1 h-4 w-4" />
                   </span>
-                </div>
+                </Link>
               </FadeInSection>
             ))}
           </div>
 
           <div className="relative z-10 mt-12 text-center">
-            <a
+            <Link
               className="inline-block border border-brand-forest px-8 py-3 text-sm uppercase tracking-widest text-brand-forest transition-colors duration-300 hover:bg-brand-forest hover:!text-white"
               href={content.services.ctaHref}
             >
               {content.services.ctaLabel}
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -322,7 +323,7 @@ export function HomePageContent({ content }: HomePageContentProps) {
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {content.testimonials.items.map((item, index) => (
-              <FadeInSection delay={index * 200} key={`${item.author}-${index}`}>
+              <FadeInSection delay={index * 150} key={`${item.author}-${index}`}>
                 <div className="border-t-4 border-brand-rose bg-white p-8 text-center shadow-sm">
                   <p className="mb-6 italic text-brand-sage">&quot;{item.quote}&quot;</p>
                   <h4 className="font-subtitle font-medium text-brand-forest">- {item.author}</h4>

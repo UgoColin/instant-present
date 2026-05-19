@@ -509,7 +509,7 @@ export function BookingPageContent({ content, siteSettings }: BookingPageContent
                           onChange={(event) =>
                             setFieldValue('phone', sanitizePhoneInput(event.target.value))
                           }
-                          placeholder="06 12 34 56 78"
+                          placeholder="06 61 85 56 89"
                           type="tel"
                           value={formValues.phone}
                         />
