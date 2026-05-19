@@ -132,7 +132,7 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
         className={[
           'absolute left-0 top-full w-full bg-brand-cream shadow-xl transition-all duration-300 xl:hidden',
           isMobileMenuOpen
-            ? 'visible max-h-[calc(100vh-80px)] overflow-y-auto py-4 opacity-100'
+            ? 'visible max-h-[calc(100dvh-80px)] overflow-y-auto pt-4 pb-[calc(env(safe-area-inset-bottom)+5rem)] opacity-100'
             : 'invisible max-h-0 overflow-hidden py-0 opacity-0',
         ].join(' ')}
       >

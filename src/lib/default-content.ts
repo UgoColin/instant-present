@@ -139,7 +139,7 @@ export const defaultBookingPage: BookingPageData = {
     title: 'À savoir',
   },
   form: {
-    description: 'Le formulaire sera prochainement connecté pour envoyer votre demande.',
+    description: 'Complétez ce formulaire pour me transmettre votre demande de rendez-vous.',
     emailLabel: 'Adresse E-mail',
     messageLabel: 'Votre message',
     messagePlaceholder:
