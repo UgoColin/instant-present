@@ -208,7 +208,7 @@ export function BookingPageContent({ content, siteSettings }: BookingPageContent
   const contactAddress = `${siteSettings.contact.address.replace(/\n/g, ', ')}, France`
   const encodedContactAddress = encodeURIComponent(contactAddress)
   const openStreetMapEmbedUrl =
-    'https://www.openstreetmap.org/export/embed.html?bbox=2.8216%2C50.5932%2C2.8316%2C50.5992&layer=mapnik&marker=50.5962%2C2.8266'
+    'https://www.openstreetmap.org/export/embed.html?bbox=2.8191%2C50.5916%2C2.8261%2C50.5950&layer=mapnik&marker=50.59327431197072%2C2.8226227860279547'
 
   useEffect(() => {
     if (!toast) {
