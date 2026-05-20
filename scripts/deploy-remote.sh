@@ -28,6 +28,7 @@ fi
 cd "$APP_DIR"
 
 npm ci --include=dev
+npx pm2 stop instant-present || true
 npm run repair:sqlite-globals
 npm run ensure:globals
 npm run generate:importmap
