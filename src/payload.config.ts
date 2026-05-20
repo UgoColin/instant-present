@@ -19,6 +19,7 @@ import { BookingPage } from './globals/BookingPage'
 import { MaternityPage } from './globals/MaternityPage'
 import { NutritionPage } from './globals/NutritionPage'
 import { RitualsPage } from './globals/RitualsPage'
+import { SignatureRitualPage } from './globals/SignatureRitualPage'
 import { SiteSettings } from './globals/SiteSettings'
 import { WellnessPage } from './globals/WellnessPage'
 
@@ -57,6 +58,7 @@ export default buildConfig({
     MaternityPage,
     NutritionPage,
     BookingPage,
+    SignatureRitualPage,
   ],
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

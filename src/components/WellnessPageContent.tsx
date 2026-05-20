@@ -134,7 +134,7 @@ export function WellnessPageContent({ content }: WellnessPageContentProps) {
                         className="group inline-flex items-center justify-center text-xs font-semibold uppercase tracking-widest text-brand-rose transition-colors hover:text-brand-forest"
                         href={service.href}
                       >
-                        Découvrir ce soin
+                        {content.services.itemCtaLabel}
                         <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </a>
                     </div>

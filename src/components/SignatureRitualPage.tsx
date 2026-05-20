@@ -10,6 +10,9 @@ import {
   Leaf,
   Sparkles,
 } from 'lucide-react'
+import Link from 'next/link'
+
+import type { SignatureRitualPageData } from '@/lib/site-model'
 
 import { FadeInSection } from './FadeInSection'
 
@@ -21,71 +24,41 @@ const benefitIcons = {
   relax: Leaf,
 } as const
 
-type SignatureBenefitIcon = keyof typeof benefitIcons
+type SignatureRitualPageProps = {
+  content: SignatureRitualPageData
+}
 
-export function SignatureRitualPage() {
-  const profileItems = [
-    'Vous ressentez un déséquilibre intérieur.',
-    'Vous êtes fatigué(e), tendu(e) ou submergé(e).',
-    "Vous avez besoin de vous recentrer et de retrouver de l'harmonie.",
-    'Vous souhaitez vivre un soin profond, à la fois physique et émotionnel.',
-  ]
-
-  const benefitItems = [
-    {
-      description:
-        'Le soin aide à délier ce qui se fige dans le corps et ce qui pèse émotionnellement.',
-      icon: 'release' as SignatureBenefitIcon,
-      title: 'Libération des tensions physiques et émotionnelles',
-    },
-    {
-      description:
-        'Le rythme lent du rituel invite au calme, au relâchement et à une respiration plus ample.',
-      icon: 'calm' as SignatureBenefitIcon,
-      title: 'Apaisement profond du mental',
-    },
-    {
-      description:
-        'Le soin accompagne une circulation plus fluide de l’énergie pour retrouver une sensation d’élan.',
-      icon: 'energy' as SignatureBenefitIcon,
-      title: 'Rééquilibrage énergétique',
-    },
-    {
-      description:
-        'Vous retrouvez davantage de clarté intérieure, de stabilité et une sensation de recentrage.',
-      icon: 'balance' as SignatureBenefitIcon,
-      title: "Sensation d'alignement et de recentrage",
-    },
-    {
-      description:
-        'Les effets du soin se prolongent au-delà de la séance dans une détente plus installée.',
-      icon: 'relax' as SignatureBenefitIcon,
-      title: 'Détente durable',
-    },
-  ]
+export function SignatureRitualPage({ content }: SignatureRitualPageProps) {
+  const [heroTitleFirstLine, heroTitleSecondLine] = content.hero.title.split('\n')
 
   return (
     <div className="overflow-x-hidden bg-brand-cream">
       <section className="relative flex min-h-[460px] items-center justify-center overflow-hidden md:min-h-[62vh]">
         <div className="absolute inset-0 z-0">
           <img
-            alt="Soin signature Rituel Esprit"
+            alt={content.hero.backgroundImageAlt}
             className="h-full w-full object-cover object-center brightness-[0.82]"
-            src="/site-images/home-hero-massage.jpg"
+            src={content.hero.backgroundImageUrl}
           />
           <div className="absolute inset-0 bg-brand-forest/35" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
           <FadeInSection>
-            <p className="mb-4 font-script text-4xl text-brand-rose md:text-5xl">Soin signature</p>
+            <p className="mb-4 font-script text-4xl text-brand-rose md:text-5xl">
+              {content.hero.scriptTitle}
+            </p>
             <h1 className="font-subtitle text-4xl leading-tight text-brand-cream md:text-6xl">
-              Mon soin signature
-              <br />
-              <span className="text-brand-cream/90">Rituel Esprit</span>
+              {heroTitleFirstLine}
+              {heroTitleSecondLine ? (
+                <>
+                  <br />
+                  <span className="text-brand-cream/90">{heroTitleSecondLine}</span>
+                </>
+              ) : null}
             </h1>
             <p className="mx-auto mt-8 max-w-3xl text-xl font-light leading-relaxed text-white/90 md:text-2xl">
-              « Un soin où le corps se relâche… et où l’énergie retrouve son équilibre »
+              {content.hero.quote}
             </p>
           </FadeInSection>
         </div>
@@ -99,9 +72,11 @@ export function SignatureRitualPage() {
             </div>
             <div>
               <p className="text-sm font-semibold uppercase tracking-widest text-brand-sage">
-                Durée
+                {content.practicalInfo.durationLabel}
               </p>
-              <p className="font-subtitle text-xl text-brand-forest">1h30</p>
+              <p className="font-subtitle text-xl text-brand-forest">
+                {content.practicalInfo.duration}
+              </p>
             </div>
           </div>
 
@@ -113,20 +88,22 @@ export function SignatureRitualPage() {
             </div>
             <div>
               <p className="text-sm font-semibold uppercase tracking-widest text-brand-sage">
-                Tarif
+                {content.practicalInfo.priceLabel}
               </p>
-              <p className="font-subtitle text-xl text-brand-forest">90€</p>
+              <p className="font-subtitle text-xl text-brand-forest">
+                {content.practicalInfo.price}
+              </p>
             </div>
           </div>
 
           <div>
-            <a
+            <Link
               className="inline-block bg-brand-forest px-8 py-3 text-sm uppercase tracking-widest !text-white transition-colors duration-300 hover:bg-brand-rose hover:!text-white"
-              href="/contact"
+              href={content.practicalInfo.ctaHref}
               style={{ color: '#ffffff' }}
             >
-              Réserver ce soin
-            </a>
+              {content.practicalInfo.ctaLabel}
+            </Link>
           </div>
         </div>
       </div>
@@ -142,20 +119,16 @@ export function SignatureRitualPage() {
           <div className="flex flex-col items-center gap-16 lg:flex-row">
             <div className="w-full lg:w-1/2">
               <FadeInSection>
-                <h3 className="mb-2 font-script text-4xl text-brand-rose">Une escale holistique</h3>
+                <h3 className="mb-2 font-script text-4xl text-brand-rose">
+                  {content.overview.scriptTitle}
+                </h3>
                 <h2 className="mb-8 font-subtitle text-4xl text-brand-forest md:text-5xl">
-                  Harmoniser le corps, apaiser l’esprit et rééquilibrer l’énergie
+                  {content.overview.title}
                 </h2>
                 <div className="space-y-6 text-lg font-light leading-relaxed text-brand-sage">
-                  <p>
-                    Ce soin signature est une véritable invitation à ralentir, à vous déposer et à
-                    vous reconnecter profondément à vous-même.
-                  </p>
-                  <p>
-                    À travers un toucher conscient, des gestes fluides et une présence attentive, ce
-                    rituel agit à la fois sur le corps, le mental et l’énergie.
-                  </p>
-                  <p>Un moment hors du temps, pour vous reconnecter à vous-même en profondeur.</p>
+                  {content.overview.paragraphs.map((paragraph, index) => (
+                    <p key={`${paragraph.slice(0, 24)}-${index}`}>{paragraph}</p>
+                  ))}
                 </div>
               </FadeInSection>
             </div>
@@ -164,9 +137,9 @@ export function SignatureRitualPage() {
               <FadeInSection delay={200}>
                 <div className="overflow-hidden rounded-t-full border-8 border-white shadow-xl">
                   <img
-                    alt="Ambiance du Rituel Esprit"
+                    alt={content.overview.imageAlt}
                     className="h-[500px] w-full object-cover"
-                    src="/site-images/wellness-oils.jpg"
+                    src={content.overview.imageUrl}
                   />
                 </div>
               </FadeInSection>
@@ -187,10 +160,10 @@ export function SignatureRitualPage() {
             <FadeInSection>
               <div className="rounded-[2rem] bg-brand-cream p-8 md:p-10">
                 <h2 className="mb-8 font-subtitle text-3xl text-brand-forest md:text-4xl">
-                  Pour vous si…
+                  {content.profile.title}
                 </h2>
                 <div className="space-y-5">
-                  {profileItems.map((item) => (
+                  {content.profile.items.map((item) => (
                     <div className="flex items-start" key={item}>
                       <CheckCircle2 className="mr-4 mt-1 h-6 w-6 flex-shrink-0 text-brand-rose" />
                       <p className="font-medium leading-relaxed text-brand-sage">{item}</p>
@@ -206,22 +179,14 @@ export function SignatureRitualPage() {
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-cream text-brand-rose">
                     <Sparkles className="h-6 w-6" />
                   </div>
-                  <h2 className="font-subtitle text-3xl text-brand-forest md:text-4xl">Le soin</h2>
+                  <h2 className="font-subtitle text-3xl text-brand-forest md:text-4xl">
+                    {content.treatment.title}
+                  </h2>
                 </div>
                 <div className="space-y-5 text-lg font-light leading-relaxed text-brand-sage">
-                  <p>
-                    Ce Rituel associe des manœuvres enveloppantes, fluides et profondes, réalisées
-                    avec lenteur et intention.
-                  </p>
-                  <p>
-                    Le travail ne se limite pas au relâchement musculaire : il permet également de
-                    relancer la circulation de l’énergie dans le corps, favorisant une sensation
-                    d’harmonie globale.
-                  </p>
-                  <p>
-                    Chaque soin est unique, guidé par l’écoute de votre corps et de vos ressentis,
-                    pour vous accompagner là où vous en avez le plus besoin.
-                  </p>
+                  {content.treatment.paragraphs.map((paragraph, index) => (
+                    <p key={`${paragraph.slice(0, 24)}-${index}`}>{paragraph}</p>
+                  ))}
                 </div>
               </div>
             </FadeInSection>
@@ -233,15 +198,15 @@ export function SignatureRitualPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <FadeInSection>
             <div className="mb-16 text-center">
-              <p className="mb-2 font-script text-4xl text-brand-rose">Les bienfaits</p>
-              <h2 className="font-subtitle text-4xl md:text-5xl">
-                Une sensation d’équilibre retrouvée
-              </h2>
+              <p className="mb-2 font-script text-4xl text-brand-rose">
+                {content.benefits.scriptTitle}
+              </p>
+              <h2 className="font-subtitle text-4xl md:text-5xl">{content.benefits.title}</h2>
             </div>
           </FadeInSection>
 
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3">
-            {benefitItems.map((item, index) => {
+            {content.benefits.items.map((item, index) => {
               const Icon = benefitIcons[item.icon]
 
               return (
@@ -263,28 +228,26 @@ export function SignatureRitualPage() {
       <section className="bg-brand-cream px-4 py-20 text-center">
         <FadeInSection>
           <h2 className="mb-6 font-subtitle text-3xl text-brand-forest md:text-4xl">
-            Vous offrir un vrai temps de recentrage
+            {content.closingCta.title}
           </h2>
           <p className="mx-auto mb-8 max-w-3xl text-lg font-light text-brand-sage">
-            Le Rituel Esprit s’adresse à celles et ceux qui ont besoin de souffler, de relâcher les
-            tensions accumulées et de retrouver une harmonie plus profonde entre corps, émotions et
-            énergie.
+            {content.closingCta.text}
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
+            <Link
               className="flex items-center bg-brand-rose px-8 py-4 text-sm font-semibold uppercase tracking-wider !text-white transition-colors hover:bg-brand-forest hover:!text-white"
-              href="/contact"
+              href={content.closingCta.primaryHref}
               style={{ color: '#ffffff' }}
             >
-              Réserver le Rituel Esprit
+              {content.closingCta.primaryLabel}
               <ArrowRight className="ml-2 h-4 w-4" />
-            </a>
-            <a
+            </Link>
+            <Link
               className="border-b border-brand-forest pb-1 text-sm uppercase tracking-widest text-brand-forest transition-all hover:border-brand-rose hover:text-brand-rose"
-              href="/"
+              href={content.closingCta.secondaryHref}
             >
-              Revenir à l’accueil
-            </a>
+              {content.closingCta.secondaryLabel}
+            </Link>
           </div>
         </FadeInSection>
       </section>

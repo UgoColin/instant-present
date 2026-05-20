@@ -117,16 +117,7 @@ export function HomePageContent({ content }: HomePageContentProps) {
 
                 <div className="space-y-6 font-light leading-relaxed text-brand-sage">
                   {content.about.paragraphs.map((paragraph, index) => (
-                    <p key={`${paragraph.slice(0, 24)}-${index}`}>
-                      {index === 0 ? (
-                        <>
-                          <strong className="font-medium text-brand-forest">Je m’appelle Krystel</strong>
-                          {paragraph.replace('Je m’appelle Krystel', '')}
-                        </>
-                      ) : (
-                        paragraph
-                      )}
-                    </p>
+                    <p key={`${paragraph.slice(0, 24)}-${index}`}>{paragraph}</p>
                   ))}
                 </div>
 
@@ -165,52 +156,52 @@ export function HomePageContent({ content }: HomePageContentProps) {
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
             <FadeInSection>
-              <div className="overflow-hidden rounded-[2.2rem] border border-white/60 shadow-[0_30px_90px_rgba(21,87,77,0.08)]">
-                <img
-                  alt="Mon soin signature Rituel Esprit"
-                  className="h-[500px] w-full object-cover"
-                  src="/site-images/wellness-oils.jpg"
-                />
-              </div>
-            </FadeInSection>
+                <div className="overflow-hidden rounded-[2.2rem] border border-white/60 shadow-[0_30px_90px_rgba(21,87,77,0.08)]">
+                  <img
+                    alt={content.signatureFeature.imageAlt}
+                    className="h-[500px] w-full object-cover"
+                    src={content.signatureFeature.imageUrl}
+                  />
+                </div>
+              </FadeInSection>
 
             <FadeInSection delay={180}>
-              <p className="mb-2 font-script text-4xl text-brand-rose">Mon soin signature</p>
+              <p className="mb-2 font-script text-4xl text-brand-rose">
+                {content.signatureFeature.scriptTitle}
+              </p>
               <h2 className="max-w-3xl font-subtitle text-4xl leading-tight text-brand-forest md:text-5xl">
-                Rituel Esprit
+                {content.signatureFeature.title}
               </h2>
               <p className="mt-6 max-w-3xl text-xl font-light leading-relaxed text-brand-sage">
-                Une escale holistique de 1h30 pour harmoniser le corps, apaiser l’esprit et
-                rééquilibrer l’énergie.
+                {content.signatureFeature.subtitle}
               </p>
               <p className="mt-5 max-w-3xl text-lg font-light leading-relaxed text-brand-sage">
-                Un soin profond et enveloppant pour ralentir, vous déposer et retrouver un
-                équilibre plus juste entre le corps, le mental et les ressentis.
+                {content.signatureFeature.description}
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
                 <div className="rounded-full border border-brand-rose/20 bg-white/70 px-5 py-3 text-sm uppercase tracking-[0.18em] text-brand-forest">
-                  1h30
+                  {content.signatureFeature.duration}
                 </div>
                 <div className="rounded-full border border-brand-rose/20 bg-white/70 px-5 py-3 text-sm uppercase tracking-[0.18em] text-brand-forest">
-                  90€
+                  {content.signatureFeature.price}
                 </div>
               </div>
 
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <Link
                   className="inline-flex items-center justify-center bg-brand-forest px-8 py-4 text-sm font-semibold uppercase tracking-widest !text-white transition-colors duration-300 hover:bg-brand-rose hover:!text-white"
-                  href="/rituel-esprit"
+                  href={content.signatureFeature.primaryCtaHref}
                   style={{ color: '#ffffff' }}
                 >
-                  Découvrir ce soin
+                  {content.signatureFeature.primaryCtaLabel}
                   <ChevronRight className="ml-2 h-4 w-4" />
                 </Link>
                 <Link
                   className="inline-flex items-center justify-center border border-brand-forest px-8 py-4 text-sm uppercase tracking-widest text-brand-forest transition-colors duration-300 hover:bg-brand-forest hover:!text-white"
-                  href="/contact"
+                  href={content.signatureFeature.secondaryCtaHref}
                 >
-                  Réserver
+                  {content.signatureFeature.secondaryCtaLabel}
                 </Link>
               </div>
             </FadeInSection>
@@ -252,7 +243,7 @@ export function HomePageContent({ content }: HomePageContentProps) {
                   <h4 className="mb-2 font-subtitle text-2xl text-brand-forest">{item.title}</h4>
                   <p className="mb-4 line-clamp-2 font-light text-brand-sage">{item.description}</p>
                   <span className="flex items-center text-sm uppercase tracking-widest text-brand-rose transition-colors group-hover:text-brand-forest">
-                    En savoir plus <ChevronRight className="ml-1 h-4 w-4" />
+                    {content.services.itemCtaLabel} <ChevronRight className="ml-1 h-4 w-4" />
                   </span>
                 </Link>
               </FadeInSection>

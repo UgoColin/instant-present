@@ -63,6 +63,11 @@ export const WellnessPage: GlobalConfig = {
       type: 'group',
       fields: [
         {
+          name: 'itemCtaLabel',
+          type: 'text',
+          defaultValue: defaultWellnessPage.services.itemCtaLabel,
+        },
+        {
           name: 'items',
           type: 'array',
           defaultValue: defaultWellnessPage.services.items,

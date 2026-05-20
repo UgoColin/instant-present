@@ -90,6 +90,27 @@ export const BookingPage: GlobalConfig = {
       ],
     },
     {
+      name: 'contactMethods',
+      type: 'group',
+      fields: [
+        {
+          name: 'phoneTitle',
+          type: 'text',
+          defaultValue: defaultBookingPage.contactMethods.phoneTitle,
+        },
+        {
+          name: 'emailTitle',
+          type: 'text',
+          defaultValue: defaultBookingPage.contactMethods.emailTitle,
+        },
+        {
+          name: 'facebookTitle',
+          type: 'text',
+          defaultValue: defaultBookingPage.contactMethods.facebookTitle,
+        },
+      ],
+    },
+    {
       name: 'form',
       type: 'group',
       fields: [
@@ -154,6 +175,62 @@ export const BookingPage: GlobalConfig = {
           name: 'submitLabel',
           type: 'text',
           defaultValue: defaultBookingPage.form.submitLabel,
+        },
+      ],
+    },
+    {
+      name: 'giftCard',
+      type: 'group',
+      fields: [
+        {
+          name: 'scriptTitle',
+          type: 'text',
+          defaultValue: defaultBookingPage.giftCard.scriptTitle,
+        },
+        {
+          name: 'title',
+          type: 'text',
+          defaultValue: defaultBookingPage.giftCard.title,
+        },
+        {
+          name: 'introParagraph',
+          type: 'textarea',
+          defaultValue: defaultBookingPage.giftCard.introParagraph,
+        },
+        {
+          name: 'detailsParagraph',
+          type: 'textarea',
+          defaultValue: defaultBookingPage.giftCard.detailsParagraph,
+        },
+        {
+          name: 'orderTitle',
+          type: 'text',
+          defaultValue: defaultBookingPage.giftCard.orderTitle,
+        },
+        {
+          name: 'emailLabel',
+          type: 'text',
+          defaultValue: defaultBookingPage.giftCard.emailLabel,
+        },
+        {
+          name: 'facebookLabel',
+          type: 'text',
+          defaultValue: defaultBookingPage.giftCard.facebookLabel,
+        },
+        {
+          name: 'formLabel',
+          type: 'text',
+          defaultValue: defaultBookingPage.giftCard.formLabel,
+        },
+        {
+          name: 'imageFrontAlt',
+          type: 'text',
+          defaultValue: defaultBookingPage.giftCard.imageFrontAlt,
+        },
+        {
+          name: 'imageBackAlt',
+          type: 'text',
+          defaultValue: defaultBookingPage.giftCard.imageBackAlt,
         },
       ],
     },

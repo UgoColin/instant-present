@@ -68,6 +68,7 @@ export type HomePageData = {
     title: string
   }
   services: {
+    itemCtaLabel: string
     ctaHref: string
     ctaLabel: string
     items: {
@@ -78,6 +79,20 @@ export type HomePageData = {
       title: string
     }[]
     scriptTitle: string
+    title: string
+  }
+  signatureFeature: {
+    description: string
+    duration: string
+    imageAlt: string
+    imageUrl: string
+    primaryCtaHref: string
+    primaryCtaLabel: string
+    price: string
+    scriptTitle: string
+    secondaryCtaHref: string
+    secondaryCtaLabel: string
+    subtitle: string
     title: string
   }
   testimonials: {
@@ -116,6 +131,7 @@ export type WellnessPageData = {
     title: string
   }
   services: {
+    itemCtaLabel: string
     items: {
       description: string
       duration: string
@@ -206,6 +222,18 @@ export type BookingPageData = {
     submitLabel: string
     title: string
   }
+  giftCard: {
+    detailsParagraph: string
+    emailLabel: string
+    facebookLabel: string
+    formLabel: string
+    imageBackAlt: string
+    imageFrontAlt: string
+    introParagraph: string
+    orderTitle: string
+    scriptTitle: string
+    title: string
+  }
   hero: {
     backgroundImageAlt: string
     backgroundImageUrl: string
@@ -220,11 +248,66 @@ export type BookingPageData = {
     paragraphs: string[]
     title: string
   }
+  contactMethods: {
+    emailTitle: string
+    facebookTitle: string
+    phoneTitle: string
+  }
   reservation: {
     description: string
     facebookLabel: string
     facebookUrl: string
     scriptTitle: string
+    title: string
+  }
+}
+
+export type SignatureRitualPageData = {
+  benefits: {
+    items: {
+      description: string
+      icon: 'balance' | 'calm' | 'energy' | 'release' | 'relax'
+      title: string
+    }[]
+    scriptTitle: string
+    title: string
+  }
+  closingCta: {
+    primaryHref: string
+    primaryLabel: string
+    secondaryHref: string
+    secondaryLabel: string
+    text: string
+    title: string
+  }
+  hero: {
+    backgroundImageAlt: string
+    backgroundImageUrl: string
+    quote: string
+    scriptTitle: string
+    title: string
+  }
+  overview: {
+    imageAlt: string
+    imageUrl: string
+    paragraphs: string[]
+    scriptTitle: string
+    title: string
+  }
+  practicalInfo: {
+    ctaHref: string
+    ctaLabel: string
+    duration: string
+    durationLabel: string
+    price: string
+    priceLabel: string
+  }
+  profile: {
+    items: string[]
+    title: string
+  }
+  treatment: {
+    paragraphs: string[]
     title: string
   }
 }

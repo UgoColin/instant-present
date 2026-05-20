@@ -63,6 +63,11 @@ export const MaternityPage: GlobalConfig = {
       type: 'group',
       fields: [
         {
+          name: 'itemCtaLabel',
+          type: 'text',
+          defaultValue: defaultMaternityPage.services.itemCtaLabel,
+        },
+        {
           name: 'items',
           type: 'array',
           defaultValue: defaultMaternityPage.services.items,

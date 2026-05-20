@@ -161,6 +161,11 @@ export const HomePage: GlobalConfig = {
           ],
         },
         {
+          name: 'itemCtaLabel',
+          type: 'text',
+          defaultValue: defaultHomePage.services.itemCtaLabel,
+        },
+        {
           name: 'ctaLabel',
           type: 'text',
           defaultValue: defaultHomePage.services.ctaLabel,
@@ -169,6 +174,72 @@ export const HomePage: GlobalConfig = {
           name: 'ctaHref',
           type: 'text',
           defaultValue: defaultHomePage.services.ctaHref,
+        },
+      ],
+    },
+    {
+      name: 'signatureFeature',
+      type: 'group',
+      fields: [
+        {
+          name: 'scriptTitle',
+          type: 'text',
+          defaultValue: defaultHomePage.signatureFeature.scriptTitle,
+        },
+        {
+          name: 'title',
+          type: 'text',
+          defaultValue: defaultHomePage.signatureFeature.title,
+        },
+        {
+          name: 'subtitle',
+          type: 'textarea',
+          defaultValue: defaultHomePage.signatureFeature.subtitle,
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          defaultValue: defaultHomePage.signatureFeature.description,
+        },
+        {
+          name: 'duration',
+          type: 'text',
+          defaultValue: defaultHomePage.signatureFeature.duration,
+        },
+        {
+          name: 'price',
+          type: 'text',
+          defaultValue: defaultHomePage.signatureFeature.price,
+        },
+        {
+          name: 'primaryCtaLabel',
+          type: 'text',
+          defaultValue: defaultHomePage.signatureFeature.primaryCtaLabel,
+        },
+        {
+          name: 'primaryCtaHref',
+          type: 'text',
+          defaultValue: defaultHomePage.signatureFeature.primaryCtaHref,
+        },
+        {
+          name: 'secondaryCtaLabel',
+          type: 'text',
+          defaultValue: defaultHomePage.signatureFeature.secondaryCtaLabel,
+        },
+        {
+          name: 'secondaryCtaHref',
+          type: 'text',
+          defaultValue: defaultHomePage.signatureFeature.secondaryCtaHref,
+        },
+        {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
+        },
+        {
+          name: 'imageAlt',
+          type: 'text',
+          defaultValue: defaultHomePage.signatureFeature.imageAlt,
         },
       ],
     },

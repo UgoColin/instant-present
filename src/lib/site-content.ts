@@ -10,6 +10,7 @@ import type {
   Page,
   RitualServicePage,
   RitualsPage,
+  SignatureRitualPage,
   SiteSetting,
   WellnessPage,
   WellnessServicePage,
@@ -38,6 +39,7 @@ import {
   defaultPlantarMassagePage,
   defaultPrenatalMassagePage,
   defaultRitualsPage,
+  defaultSignatureRitualPage,
   defaultSiteSettings,
   defaultWellnessPage,
 } from '@/lib/default-content'
@@ -45,6 +47,7 @@ import { getPayloadClient } from '@/lib/payload'
 import type {
   BookingPageData,
   HomePageData,
+  SignatureRitualPageData,
   SiteSettingsData,
   WellnessPageData,
   WellnessServiceDetailPageData,
@@ -291,6 +294,7 @@ const normalizeHomePage = (data?: HomePage | null): HomePageData => ({
         ? data.services.ctaHref
         : defaultHomePage.services.ctaHref,
     ctaLabel: data?.services?.ctaLabel || defaultHomePage.services.ctaLabel,
+    itemCtaLabel: data?.services?.itemCtaLabel || defaultHomePage.services.itemCtaLabel,
     items:
       data?.services?.items?.map((item, index) => ({
         description: item.description,
@@ -308,6 +312,34 @@ const normalizeHomePage = (data?: HomePage | null): HomePageData => ({
       })) || defaultHomePage.services.items,
     scriptTitle: data?.services?.scriptTitle || defaultHomePage.services.scriptTitle,
     title: data?.services?.title || defaultHomePage.services.title,
+  },
+  signatureFeature: {
+    description:
+      data?.signatureFeature?.description || defaultHomePage.signatureFeature.description,
+    duration: data?.signatureFeature?.duration || defaultHomePage.signatureFeature.duration,
+    imageAlt: data?.signatureFeature?.imageAlt || defaultHomePage.signatureFeature.imageAlt,
+    imageUrl: getMediaUrl(
+      data?.signatureFeature?.image,
+      defaultHomePage.signatureFeature.imageUrl,
+    ),
+    primaryCtaHref:
+      data?.signatureFeature?.primaryCtaHref && data.signatureFeature.primaryCtaHref !== '#'
+        ? data.signatureFeature.primaryCtaHref
+        : defaultHomePage.signatureFeature.primaryCtaHref,
+    primaryCtaLabel:
+      data?.signatureFeature?.primaryCtaLabel || defaultHomePage.signatureFeature.primaryCtaLabel,
+    price: data?.signatureFeature?.price || defaultHomePage.signatureFeature.price,
+    scriptTitle:
+      data?.signatureFeature?.scriptTitle || defaultHomePage.signatureFeature.scriptTitle,
+    secondaryCtaHref:
+      data?.signatureFeature?.secondaryCtaHref && data.signatureFeature.secondaryCtaHref !== '#'
+        ? data.signatureFeature.secondaryCtaHref
+        : defaultHomePage.signatureFeature.secondaryCtaHref,
+    secondaryCtaLabel:
+      data?.signatureFeature?.secondaryCtaLabel ||
+      defaultHomePage.signatureFeature.secondaryCtaLabel,
+    subtitle: data?.signatureFeature?.subtitle || defaultHomePage.signatureFeature.subtitle,
+    title: data?.signatureFeature?.title || defaultHomePage.signatureFeature.title,
   },
   testimonials: {
     items:
@@ -374,6 +406,19 @@ const normalizeBookingPage = (data?: BookingPage | null): BookingPageData => ({
     submitLabel: data?.form?.submitLabel || defaultBookingPage.form.submitLabel,
     title: data?.form?.title || defaultBookingPage.form.title,
   },
+  giftCard: {
+    detailsParagraph:
+      data?.giftCard?.detailsParagraph || defaultBookingPage.giftCard.detailsParagraph,
+    emailLabel: data?.giftCard?.emailLabel || defaultBookingPage.giftCard.emailLabel,
+    facebookLabel: data?.giftCard?.facebookLabel || defaultBookingPage.giftCard.facebookLabel,
+    formLabel: data?.giftCard?.formLabel || defaultBookingPage.giftCard.formLabel,
+    imageBackAlt: data?.giftCard?.imageBackAlt || defaultBookingPage.giftCard.imageBackAlt,
+    imageFrontAlt: data?.giftCard?.imageFrontAlt || defaultBookingPage.giftCard.imageFrontAlt,
+    introParagraph: data?.giftCard?.introParagraph || defaultBookingPage.giftCard.introParagraph,
+    orderTitle: data?.giftCard?.orderTitle || defaultBookingPage.giftCard.orderTitle,
+    scriptTitle: data?.giftCard?.scriptTitle || defaultBookingPage.giftCard.scriptTitle,
+    title: data?.giftCard?.title || defaultBookingPage.giftCard.title,
+  },
   hero: {
     backgroundImageAlt:
       data?.hero?.backgroundImageAlt || defaultBookingPage.hero.backgroundImageAlt,
@@ -395,6 +440,12 @@ const normalizeBookingPage = (data?: BookingPage | null): BookingPageData => ({
       data?.intro?.paragraphs?.map((item) => item.text).filter(Boolean) ||
       defaultBookingPage.intro.paragraphs,
     title: data?.intro?.title || defaultBookingPage.intro.title,
+  },
+  contactMethods: {
+    emailTitle: data?.contactMethods?.emailTitle || defaultBookingPage.contactMethods.emailTitle,
+    facebookTitle:
+      data?.contactMethods?.facebookTitle || defaultBookingPage.contactMethods.facebookTitle,
+    phoneTitle: data?.contactMethods?.phoneTitle || defaultBookingPage.contactMethods.phoneTitle,
   },
   reservation: {
     description: data?.reservation?.description || defaultBookingPage.reservation.description,
@@ -445,6 +496,7 @@ const normalizeWellnessPage = (data?: WellnessPage | null): WellnessPageData => 
     title: data?.intro?.title || defaultWellnessPage.intro.title,
   },
   services: {
+    itemCtaLabel: data?.services?.itemCtaLabel || defaultWellnessPage.services.itemCtaLabel,
     items:
       data?.services?.items?.map((item, index) => ({
         description: item.description,
@@ -474,6 +526,93 @@ const normalizeWellnessPage = (data?: WellnessPage | null): WellnessPageData => 
         price: item.price || '',
         title: item.title,
       })) || defaultWellnessPage.services.items,
+  },
+})
+
+const normalizeSignatureRitualPage = (
+  data?: SignatureRitualPage | null,
+): SignatureRitualPageData => ({
+  benefits: {
+    items:
+      data?.benefits?.items?.map((item, index) => ({
+        description: item.description,
+        icon:
+          item.icon === 'balance' ||
+          item.icon === 'calm' ||
+          item.icon === 'energy' ||
+          item.icon === 'release' ||
+          item.icon === 'relax'
+            ? item.icon
+            : defaultSignatureRitualPage.benefits.items[index]?.icon ||
+              defaultSignatureRitualPage.benefits.items[0].icon,
+        title: item.title,
+      })) || defaultSignatureRitualPage.benefits.items,
+    scriptTitle:
+      data?.benefits?.scriptTitle || defaultSignatureRitualPage.benefits.scriptTitle,
+    title: data?.benefits?.title || defaultSignatureRitualPage.benefits.title,
+  },
+  closingCta: {
+    primaryHref:
+      data?.closingCta?.primaryHref && data.closingCta.primaryHref !== '#'
+        ? data.closingCta.primaryHref
+        : defaultSignatureRitualPage.closingCta.primaryHref,
+    primaryLabel:
+      data?.closingCta?.primaryLabel || defaultSignatureRitualPage.closingCta.primaryLabel,
+    secondaryHref:
+      data?.closingCta?.secondaryHref && data.closingCta.secondaryHref !== '#'
+        ? data.closingCta.secondaryHref
+        : defaultSignatureRitualPage.closingCta.secondaryHref,
+    secondaryLabel:
+      data?.closingCta?.secondaryLabel || defaultSignatureRitualPage.closingCta.secondaryLabel,
+    text: data?.closingCta?.text || defaultSignatureRitualPage.closingCta.text,
+    title: data?.closingCta?.title || defaultSignatureRitualPage.closingCta.title,
+  },
+  hero: {
+    backgroundImageAlt:
+      data?.hero?.backgroundImageAlt || defaultSignatureRitualPage.hero.backgroundImageAlt,
+    backgroundImageUrl: getMediaUrl(
+      data?.hero?.backgroundImage,
+      defaultSignatureRitualPage.hero.backgroundImageUrl,
+    ),
+    quote: data?.hero?.quote || defaultSignatureRitualPage.hero.quote,
+    scriptTitle: data?.hero?.scriptTitle || defaultSignatureRitualPage.hero.scriptTitle,
+    title: data?.hero?.title || defaultSignatureRitualPage.hero.title,
+  },
+  overview: {
+    imageAlt: data?.overview?.imageAlt || defaultSignatureRitualPage.overview.imageAlt,
+    imageUrl: getMediaUrl(data?.overview?.image, defaultSignatureRitualPage.overview.imageUrl),
+    paragraphs:
+      data?.overview?.paragraphs?.map((item) => item.text).filter(Boolean) ||
+      defaultSignatureRitualPage.overview.paragraphs,
+    scriptTitle: data?.overview?.scriptTitle || defaultSignatureRitualPage.overview.scriptTitle,
+    title: data?.overview?.title || defaultSignatureRitualPage.overview.title,
+  },
+  practicalInfo: {
+    ctaHref:
+      data?.practicalInfo?.ctaHref && data.practicalInfo.ctaHref !== '#'
+        ? data.practicalInfo.ctaHref
+        : defaultSignatureRitualPage.practicalInfo.ctaHref,
+    ctaLabel:
+      data?.practicalInfo?.ctaLabel || defaultSignatureRitualPage.practicalInfo.ctaLabel,
+    duration: data?.practicalInfo?.duration || defaultSignatureRitualPage.practicalInfo.duration,
+    durationLabel:
+      data?.practicalInfo?.durationLabel ||
+      defaultSignatureRitualPage.practicalInfo.durationLabel,
+    price: data?.practicalInfo?.price || defaultSignatureRitualPage.practicalInfo.price,
+    priceLabel:
+      data?.practicalInfo?.priceLabel || defaultSignatureRitualPage.practicalInfo.priceLabel,
+  },
+  profile: {
+    items:
+      data?.profile?.items?.map((item) => item.text).filter(Boolean) ||
+      defaultSignatureRitualPage.profile.items,
+    title: data?.profile?.title || defaultSignatureRitualPage.profile.title,
+  },
+  treatment: {
+    paragraphs:
+      data?.treatment?.paragraphs?.map((item) => item.text).filter(Boolean) ||
+      defaultSignatureRitualPage.treatment.paragraphs,
+    title: data?.treatment?.title || defaultSignatureRitualPage.treatment.title,
   },
 })
 
@@ -517,6 +656,7 @@ const normalizeRitualsPage = (data?: RitualsPage | null): WellnessPageData => ({
     title: data?.intro?.title || defaultRitualsPage.intro.title,
   },
   services: {
+    itemCtaLabel: data?.services?.itemCtaLabel || defaultRitualsPage.services.itemCtaLabel,
     items:
       data?.services?.items?.map((item, index) => ({
         description: item.description,
@@ -583,6 +723,7 @@ const normalizeHeadSpaPage = (data?: HeadSpaPage | null): WellnessPageData => ({
     title: data?.intro?.title || defaultHeadSpaPage.intro.title,
   },
   services: {
+    itemCtaLabel: data?.services?.itemCtaLabel || defaultHeadSpaPage.services.itemCtaLabel,
     items:
       data?.services?.items?.map((item, index) => ({
         description: item.description,
@@ -647,6 +788,7 @@ const normalizeMaternityPage = (data?: MaternityPage | null): WellnessPageData =
     title: data?.intro?.title || defaultMaternityPage.intro.title,
   },
   services: {
+    itemCtaLabel: data?.services?.itemCtaLabel || defaultMaternityPage.services.itemCtaLabel,
     items:
       data?.services?.items?.map((item, index) => ({
         description: item.description,
@@ -1059,6 +1201,19 @@ export const getWellnessPageData = async (): Promise<WellnessPageData> => {
     return normalizeWellnessPage(data)
   } catch {
     return defaultWellnessPage
+  }
+}
+
+export const getSignatureRitualPageData = async (): Promise<SignatureRitualPageData> => {
+  try {
+    const payload = await getPayloadClient()
+    const data = await payload.findGlobal({
+      slug: 'signature-ritual-page',
+    })
+
+    return normalizeSignatureRitualPage(data)
+  } catch {
+    return defaultSignatureRitualPage
   }
 }
 

@@ -63,6 +63,11 @@ export const HeadSpaPage: GlobalConfig = {
       type: 'group',
       fields: [
         {
+          name: 'itemCtaLabel',
+          type: 'text',
+          defaultValue: defaultHeadSpaPage.services.itemCtaLabel,
+        },
+        {
           name: 'items',
           type: 'array',
           defaultValue: defaultHeadSpaPage.services.items,

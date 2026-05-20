@@ -63,6 +63,11 @@ export const RitualsPage: GlobalConfig = {
       type: 'group',
       fields: [
         {
+          name: 'itemCtaLabel',
+          type: 'text',
+          defaultValue: defaultRitualsPage.services.itemCtaLabel,
+        },
+        {
           name: 'items',
           type: 'array',
           defaultValue: defaultRitualsPage.services.items,

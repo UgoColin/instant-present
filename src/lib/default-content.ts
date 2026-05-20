@@ -1,6 +1,7 @@
 import type {
   BookingPageData,
   HomePageData,
+  SignatureRitualPageData,
   SiteSettingsData,
   WellnessPageData,
   WellnessServiceDetailPageData,
@@ -96,7 +97,7 @@ export const defaultBookingPage: BookingPageData = {
     mapImageAlt: 'Photo du cabinet bien-être',
     mapImageUrl: '/site-images/contact-cabinet.jpg',
     mapLabel: 'Le cabinet',
-    note: 'L’adresse précise vous sera communiquée lors de la confirmation de votre prise de rendez-vous.',
+    note: 'Retrouvez ici l’adresse du salon pour préparer facilement votre venue.',
     scriptTitle: 'Nous trouver',
     title: 'Accès au cabinet',
   },
@@ -160,6 +161,20 @@ export const defaultBookingPage: BookingPageData = {
     submitLabel: 'Envoyer ma demande',
     title: 'Formulaire de contact',
   },
+  giftCard: {
+    detailsParagraph:
+      'Pour la préparer, il suffit de me contacter avec le prénom de la personne, la prestation souhaitée ou le montant à offrir. Je vous guiderai ensuite pour la remise et le règlement.',
+    emailLabel: 'Par e-mail',
+    facebookLabel: 'Via Facebook',
+    formLabel: 'Ou directement via le formulaire de cette page.',
+    imageBackAlt: 'Carte cadeau Instant Présent - verso',
+    imageFrontAlt: 'Carte cadeau Instant Présent - recto',
+    introParagraph:
+      'Vous pouvez offrir une carte cadeau pour un soin, un rituel ou une parenthèse bien-être personnalisée. C’est une jolie attention pour un anniversaire, une naissance, une fête ou simplement pour faire plaisir.',
+    orderTitle: 'Commander une carte cadeau',
+    scriptTitle: 'Offrir un moment',
+    title: 'La carte cadeau',
+  },
   hero: {
     backgroundImageAlt: 'Cabinet bien-être prêt à vous accueillir',
     backgroundImageUrl: '/site-images/contact-cabinet-hero.jpg',
@@ -181,6 +196,11 @@ export const defaultBookingPage: BookingPageData = {
     ],
     title:
       'Vous souhaitez vous accorder un moment de bien-être, relâcher les tensions ou simplement prendre soin de vous ?',
+  },
+  contactMethods: {
+    emailTitle: 'Par e-mail',
+    facebookTitle: 'Via Facebook',
+    phoneTitle: 'Par téléphone',
   },
   reservation: {
     description:
@@ -239,6 +259,7 @@ export const defaultHomePage: HomePageData = {
   services: {
     ctaHref: '/contact',
     ctaLabel: 'Voir toutes les prestations',
+    itemCtaLabel: 'En savoir plus',
     items: [
       {
         description:
@@ -267,6 +288,22 @@ export const defaultHomePage: HomePageData = {
     ],
     scriptTitle: 'Découvrez',
     title: 'Mes Prestations',
+  },
+  signatureFeature: {
+    description:
+      'Un soin profond et enveloppant pour ralentir, vous déposer et retrouver un équilibre plus juste entre le corps, le mental et les ressentis.',
+    duration: '1h30',
+    imageAlt: 'Mon soin signature Rituel Esprit',
+    imageUrl: '/site-images/wellness-oils.jpg',
+    primaryCtaHref: '/rituel-esprit',
+    primaryCtaLabel: 'Découvrir ce soin',
+    price: '90€',
+    scriptTitle: 'Mon soin signature',
+    secondaryCtaHref: '/contact',
+    secondaryCtaLabel: 'Réserver',
+    subtitle:
+      'Une escale holistique de 1h30 pour harmoniser le corps, apaiser l’esprit et rééquilibrer l’énergie.',
+    title: 'Rituel Esprit',
   },
   testimonials: {
     items: [
@@ -335,6 +372,7 @@ export const defaultWellnessPage: WellnessPageData = {
     title: 'L’art de prendre soin de vous',
   },
   services: {
+    itemCtaLabel: 'Découvrir ce soin',
     items: [
       {
         description:
@@ -406,6 +444,96 @@ export const defaultWellnessPage: WellnessPageData = {
         title: 'Massage Plantaire',
       },
     ],
+  },
+}
+
+export const defaultSignatureRitualPage: SignatureRitualPageData = {
+  benefits: {
+    items: [
+      {
+        description:
+          'Le soin aide à délier ce qui se fige dans le corps et ce qui pèse émotionnellement.',
+        icon: 'release',
+        title: 'Libération des tensions physiques et émotionnelles',
+      },
+      {
+        description:
+          'Le rythme lent du rituel invite au calme, au relâchement et à une respiration plus ample.',
+        icon: 'calm',
+        title: 'Apaisement profond du mental',
+      },
+      {
+        description:
+          'Le soin accompagne une circulation plus fluide de l’énergie pour retrouver une sensation d’élan.',
+        icon: 'energy',
+        title: 'Rééquilibrage énergétique',
+      },
+      {
+        description:
+          'Vous retrouvez davantage de clarté intérieure, de stabilité et une sensation de recentrage.',
+        icon: 'balance',
+        title: "Sensation d'alignement et de recentrage",
+      },
+      {
+        description:
+          'Les effets du soin se prolongent au-delà de la séance dans une détente plus installée.',
+        icon: 'relax',
+        title: 'Détente durable',
+      },
+    ],
+    scriptTitle: 'Les bienfaits',
+    title: 'Une sensation d’équilibre retrouvée',
+  },
+  closingCta: {
+    primaryHref: '/contact',
+    primaryLabel: 'Réserver ce soin',
+    secondaryHref: '/soins-bien-etre',
+    secondaryLabel: 'Voir les autres soins',
+    text: 'Offrez-vous un moment hors du temps pour relâcher, ressentir et retrouver votre centre.',
+    title: 'Prêt(e) à vivre ce rituel ?',
+  },
+  hero: {
+    backgroundImageAlt: 'Soin signature Rituel Esprit',
+    backgroundImageUrl: '/site-images/home-hero-massage.jpg',
+    quote: '« Un soin où le corps se relâche… et où l’énergie retrouve son équilibre »',
+    scriptTitle: 'Soin signature',
+    title: 'Mon soin signature\nRituel Esprit',
+  },
+  overview: {
+    imageAlt: 'Ambiance du Rituel Esprit',
+    imageUrl: '/site-images/wellness-oils.jpg',
+    paragraphs: [
+      'Ce soin signature est une véritable invitation à ralentir, à vous déposer et à vous reconnecter profondément à vous-même.',
+      'À travers un toucher conscient, des gestes fluides et une présence attentive, ce rituel agit à la fois sur le corps, le mental et l’énergie.',
+      'Un moment hors du temps, pour vous reconnecter à vous-même en profondeur.',
+    ],
+    scriptTitle: 'Une escale holistique',
+    title: 'Harmoniser le corps, apaiser l’esprit et rééquilibrer l’énergie',
+  },
+  practicalInfo: {
+    ctaHref: '/contact',
+    ctaLabel: 'Réserver ce soin',
+    duration: '1h30',
+    durationLabel: 'Durée',
+    price: '90€',
+    priceLabel: 'Tarif',
+  },
+  profile: {
+    items: [
+      'Vous ressentez un déséquilibre intérieur.',
+      'Vous êtes fatigué(e), tendu(e) ou submergé(e).',
+      "Vous avez besoin de vous recentrer et de retrouver de l'harmonie.",
+      'Vous souhaitez vivre un soin profond, à la fois physique et émotionnel.',
+    ],
+    title: 'Pour vous si…',
+  },
+  treatment: {
+    paragraphs: [
+      'Ce Rituel associe des manœuvres enveloppantes, fluides et profondes, réalisées avec lenteur et intention.',
+      'Le travail ne se limite pas au relâchement musculaire : il permet également de relancer la circulation de l’énergie dans le corps, favorisant une sensation d’harmonie globale.',
+      'Chaque soin est unique, guidé par l’écoute de votre corps et de vos ressentis, pour vous accompagner là où vous en avez le plus besoin.',
+    ],
+    title: 'Le soin',
   },
 }
 
@@ -956,6 +1084,7 @@ export const defaultRitualsPage: WellnessPageData = {
     title: 'Des rituels pensés pour aller plus loin',
   },
   services: {
+    itemCtaLabel: 'Découvrir ce soin',
     items: [
       {
         description:
@@ -1339,6 +1468,7 @@ export const defaultHeadSpaPage: WellnessPageData = {
     title: 'Un rituel sensoriel pour ralentir profondément',
   },
   services: {
+    itemCtaLabel: 'Découvrir ce soin',
     items: [
       {
         description:
@@ -1640,6 +1770,7 @@ export const defaultMaternityPage: WellnessPageData = {
     title: 'Des soins pensés pour vous accompagner en douceur',
   },
   services: {
+    itemCtaLabel: 'Découvrir ce soin',
     items: [
       {
         description:

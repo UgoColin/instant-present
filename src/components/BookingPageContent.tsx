@@ -109,7 +109,17 @@ function FieldError({ message }: { message?: string }) {
   return <p className="mt-2 text-sm font-medium text-[#b64545]">{message}</p>
 }
 
-function GiftCardPreviewSection({ email, facebookUrl }: { email: string; facebookUrl: string }) {
+function GiftCardPreviewSection({
+  content,
+  email,
+  facebookLinkLabel,
+  facebookUrl,
+}: {
+  content: BookingPageData['giftCard']
+  email: string
+  facebookLinkLabel: string
+  facebookUrl: string
+}) {
   return (
     <section className="relative overflow-hidden bg-white py-20">
       <img
@@ -122,37 +132,35 @@ function GiftCardPreviewSection({ email, facebookUrl }: { email: string; faceboo
         <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
           <FadeInSection>
             <div className="relative z-10 max-w-xl">
-              <h3 className="mb-2 font-script text-4xl text-brand-rose">Offrir un moment</h3>
+              <h3 className="mb-2 font-script text-4xl text-brand-rose">{content.scriptTitle}</h3>
               <h2 className="mb-6 font-subtitle text-3xl text-brand-forest md:text-4xl">
-                La carte cadeau
+                {content.title}
               </h2>
               <p className="text-base leading-8 text-brand-sage">
-                Vous pouvez offrir une carte cadeau pour un soin, un rituel ou une parenthèse
-                bien-être personnalisée. C’est une jolie attention pour un anniversaire, une
-                naissance, une fête ou simplement pour faire plaisir.
+                {content.introParagraph}
               </p>
               <p className="mt-5 text-base leading-8 text-brand-sage">
-                Pour la préparer, il suffit de me contacter avec le prénom de la personne, la
-                prestation souhaitée ou le montant à offrir. Je vous guiderai ensuite pour la remise
-                et le règlement.
+                {content.detailsParagraph}
               </p>
 
               <div className="mt-8 rounded-3xl border border-brand-rose/15 bg-brand-cream px-6 py-5 shadow-sm">
                 <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand-rose">
-                  Commander une carte cadeau
+                  {content.orderTitle}
                 </p>
                 <div className="mt-4 space-y-3 text-sm leading-7 text-brand-forest">
-                  <p>Par e-mail : {email}</p>
                   <p>
-                    Via Facebook :{' '}
+                    {content.emailLabel} : {email}
+                  </p>
+                  <p>
+                    {content.facebookLabel} :{' '}
                     <a
                       className="font-medium text-brand-rose transition-colors hover:text-brand-forest"
                       href={facebookUrl}
                     >
-                      message privé
+                      {facebookLinkLabel}
                     </a>
                   </p>
-                  <p>Ou directement via le formulaire de cette page.</p>
+                  <p>{content.formLabel}</p>
                 </div>
               </div>
             </div>
@@ -163,7 +171,7 @@ function GiftCardPreviewSection({ email, facebookUrl }: { email: string; faceboo
               <figure className="group overflow-hidden rounded-[2rem] border border-brand-rose/15 bg-brand-cream p-3 shadow-[0_24px_70px_rgba(21,87,77,0.08)]">
                 <div className="overflow-hidden rounded-[1.4rem] bg-white">
                   <img
-                    alt="Carte cadeau Instant Présent - recto"
+                    alt={content.imageFrontAlt}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                     src="/branding/Carte_cadeau.png"
                   />
@@ -175,7 +183,7 @@ function GiftCardPreviewSection({ email, facebookUrl }: { email: string; faceboo
               <figure className="group overflow-hidden rounded-[2rem] border border-brand-rose/15 bg-brand-cream p-3 shadow-[0_24px_70px_rgba(21,87,77,0.08)]">
                 <div className="overflow-hidden rounded-[1.4rem] bg-white">
                   <img
-                    alt="Carte cadeau Instant Présent - verso"
+                    alt={content.imageBackAlt}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                     src="/branding/Carte_cadeau2.png"
                   />
@@ -427,7 +435,7 @@ export function BookingPageContent({ content, siteSettings }: BookingPageContent
                     </div>
                     <div>
                       <h4 className="mb-1 font-subtitle text-lg text-brand-forest">
-                        Par téléphone
+                        {content.contactMethods.phoneTitle}
                       </h4>
                       <p className="font-light text-brand-sage">{siteSettings.contact.phone}</p>
                     </div>
@@ -438,7 +446,9 @@ export function BookingPageContent({ content, siteSettings }: BookingPageContent
                       <Mail className="h-5 w-5" />
                     </div>
                     <div>
-                      <h4 className="mb-1 font-subtitle text-lg text-brand-forest">Par e-mail</h4>
+                      <h4 className="mb-1 font-subtitle text-lg text-brand-forest">
+                        {content.contactMethods.emailTitle}
+                      </h4>
                       <p className="font-light text-brand-sage">{siteSettings.contact.email}</p>
                     </div>
                   </div>
@@ -448,7 +458,9 @@ export function BookingPageContent({ content, siteSettings }: BookingPageContent
                       <FacebookIcon />
                     </div>
                     <div>
-                      <h4 className="mb-1 font-subtitle text-lg text-brand-forest">Via Facebook</h4>
+                      <h4 className="mb-1 font-subtitle text-lg text-brand-forest">
+                        {content.contactMethods.facebookTitle}
+                      </h4>
                       <a
                         className="text-sm font-medium text-brand-rose transition-colors hover:text-brand-forest"
                         href={content.reservation.facebookUrl}
@@ -591,7 +603,9 @@ export function BookingPageContent({ content, siteSettings }: BookingPageContent
       </section>
 
       <GiftCardPreviewSection
+        content={content.giftCard}
         email={siteSettings.contact.email}
+        facebookLinkLabel={content.reservation.facebookLabel}
         facebookUrl={content.reservation.facebookUrl}
       />
 
@@ -632,7 +646,7 @@ export function BookingPageContent({ content, siteSettings }: BookingPageContent
                       {siteSettings.contact.address.split('\n')[1]}
                     </p>
                     <p className="mt-2 border-l-2 border-brand-rose pl-3 font-light italic text-brand-sage">
-                      Retrouvez ici l’adresse du salon pour préparer facilement votre venue.
+                      {content.access.note}
                     </p>
                   </div>
                 </div>

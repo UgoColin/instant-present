@@ -106,6 +106,7 @@ export interface Config {
     'maternity-page': MaternityPage;
     'nutrition-page': NutritionPage;
     'booking-page': BookingPage;
+    'signature-ritual-page': SignatureRitualPage;
   };
   globalsSelect: {
     'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
@@ -116,6 +117,7 @@ export interface Config {
     'maternity-page': MaternityPageSelect<false> | MaternityPageSelect<true>;
     'nutrition-page': NutritionPageSelect<false> | NutritionPageSelect<true>;
     'booking-page': BookingPageSelect<false> | BookingPageSelect<true>;
+    'signature-ritual-page': SignatureRitualPageSelect<false> | SignatureRitualPageSelect<true>;
   };
   locale: null;
   widgets: {
@@ -1059,8 +1061,23 @@ export interface HomePage {
           id?: string | null;
         }[]
       | null;
+    itemCtaLabel?: string | null;
     ctaLabel?: string | null;
     ctaHref?: string | null;
+  };
+  signatureFeature?: {
+    scriptTitle?: string | null;
+    title?: string | null;
+    subtitle?: string | null;
+    description?: string | null;
+    duration?: string | null;
+    price?: string | null;
+    primaryCtaLabel?: string | null;
+    primaryCtaHref?: string | null;
+    secondaryCtaLabel?: string | null;
+    secondaryCtaHref?: string | null;
+    image?: (number | null) | Media;
+    imageAlt?: string | null;
   };
   audience?: {
     title?: string | null;
@@ -1113,6 +1130,7 @@ export interface WellnessPage {
       | null;
   };
   services?: {
+    itemCtaLabel?: string | null;
     items?:
       | {
           title: string;
@@ -1168,6 +1186,7 @@ export interface RitualsPage {
       | null;
   };
   services?: {
+    itemCtaLabel?: string | null;
     items?:
       | {
           title: string;
@@ -1223,6 +1242,7 @@ export interface HeadSpaPage {
       | null;
   };
   services?: {
+    itemCtaLabel?: string | null;
     items?:
       | {
           title: string;
@@ -1278,6 +1298,7 @@ export interface MaternityPage {
       | null;
   };
   services?: {
+    itemCtaLabel?: string | null;
     items?:
       | {
           title: string;
@@ -1403,6 +1424,11 @@ export interface BookingPage {
     facebookLabel?: string | null;
     facebookUrl?: string | null;
   };
+  contactMethods?: {
+    phoneTitle?: string | null;
+    emailTitle?: string | null;
+    facebookTitle?: string | null;
+  };
   form?: {
     title?: string | null;
     description?: string | null;
@@ -1420,6 +1446,18 @@ export interface BookingPage {
     messageLabel?: string | null;
     messagePlaceholder?: string | null;
     submitLabel?: string | null;
+  };
+  giftCard?: {
+    scriptTitle?: string | null;
+    title?: string | null;
+    introParagraph?: string | null;
+    detailsParagraph?: string | null;
+    orderTitle?: string | null;
+    emailLabel?: string | null;
+    facebookLabel?: string | null;
+    formLabel?: string | null;
+    imageFrontAlt?: string | null;
+    imageBackAlt?: string | null;
   };
   importantInfo?: {
     title?: string | null;
@@ -1451,6 +1489,80 @@ export interface BookingPage {
         }[]
       | null;
     acceptanceText?: string | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "signature-ritual-page".
+ */
+export interface SignatureRitualPage {
+  id: number;
+  hero?: {
+    scriptTitle?: string | null;
+    title?: string | null;
+    quote?: string | null;
+    backgroundImage?: (number | null) | Media;
+    backgroundImageAlt?: string | null;
+  };
+  practicalInfo?: {
+    durationLabel?: string | null;
+    duration?: string | null;
+    priceLabel?: string | null;
+    price?: string | null;
+    ctaLabel?: string | null;
+    ctaHref?: string | null;
+  };
+  overview?: {
+    scriptTitle?: string | null;
+    title?: string | null;
+    paragraphs?:
+      | {
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
+    image?: (number | null) | Media;
+    imageAlt?: string | null;
+  };
+  profile?: {
+    title?: string | null;
+    items?:
+      | {
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  treatment?: {
+    title?: string | null;
+    paragraphs?:
+      | {
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  benefits?: {
+    scriptTitle?: string | null;
+    title?: string | null;
+    items?:
+      | {
+          title: string;
+          description: string;
+          icon: 'release' | 'calm' | 'energy' | 'balance' | 'relax';
+          id?: string | null;
+        }[]
+      | null;
+  };
+  closingCta?: {
+    title?: string | null;
+    text?: string | null;
+    primaryLabel?: string | null;
+    primaryHref?: string | null;
+    secondaryLabel?: string | null;
+    secondaryHref?: string | null;
   };
   updatedAt?: string | null;
   createdAt?: string | null;
@@ -1561,8 +1673,25 @@ export interface HomePageSelect<T extends boolean = true> {
               imageAlt?: T;
               id?: T;
             };
+        itemCtaLabel?: T;
         ctaLabel?: T;
         ctaHref?: T;
+      };
+  signatureFeature?:
+    | T
+    | {
+        scriptTitle?: T;
+        title?: T;
+        subtitle?: T;
+        description?: T;
+        duration?: T;
+        price?: T;
+        primaryCtaLabel?: T;
+        primaryCtaHref?: T;
+        secondaryCtaLabel?: T;
+        secondaryCtaHref?: T;
+        image?: T;
+        imageAlt?: T;
       };
   audience?:
     | T
@@ -1627,6 +1756,7 @@ export interface WellnessPageSelect<T extends boolean = true> {
   services?:
     | T
     | {
+        itemCtaLabel?: T;
         items?:
           | T
           | {
@@ -1692,6 +1822,7 @@ export interface RitualsPageSelect<T extends boolean = true> {
   services?:
     | T
     | {
+        itemCtaLabel?: T;
         items?:
           | T
           | {
@@ -1757,6 +1888,7 @@ export interface HeadSpaPageSelect<T extends boolean = true> {
   services?:
     | T
     | {
+        itemCtaLabel?: T;
         items?:
           | T
           | {
@@ -1822,6 +1954,7 @@ export interface MaternityPageSelect<T extends boolean = true> {
   services?:
     | T
     | {
+        itemCtaLabel?: T;
         items?:
           | T
           | {
@@ -1969,6 +2102,13 @@ export interface BookingPageSelect<T extends boolean = true> {
         facebookLabel?: T;
         facebookUrl?: T;
       };
+  contactMethods?:
+    | T
+    | {
+        phoneTitle?: T;
+        emailTitle?: T;
+        facebookTitle?: T;
+      };
   form?:
     | T
     | {
@@ -1988,6 +2128,20 @@ export interface BookingPageSelect<T extends boolean = true> {
         messageLabel?: T;
         messagePlaceholder?: T;
         submitLabel?: T;
+      };
+  giftCard?:
+    | T
+    | {
+        scriptTitle?: T;
+        title?: T;
+        introParagraph?: T;
+        detailsParagraph?: T;
+        orderTitle?: T;
+        emailLabel?: T;
+        facebookLabel?: T;
+        formLabel?: T;
+        imageFrontAlt?: T;
+        imageBackAlt?: T;
       };
   importantInfo?:
     | T
@@ -2025,6 +2179,94 @@ export interface BookingPageSelect<T extends boolean = true> {
               id?: T;
             };
         acceptanceText?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "signature-ritual-page_select".
+ */
+export interface SignatureRitualPageSelect<T extends boolean = true> {
+  hero?:
+    | T
+    | {
+        scriptTitle?: T;
+        title?: T;
+        quote?: T;
+        backgroundImage?: T;
+        backgroundImageAlt?: T;
+      };
+  practicalInfo?:
+    | T
+    | {
+        durationLabel?: T;
+        duration?: T;
+        priceLabel?: T;
+        price?: T;
+        ctaLabel?: T;
+        ctaHref?: T;
+      };
+  overview?:
+    | T
+    | {
+        scriptTitle?: T;
+        title?: T;
+        paragraphs?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        image?: T;
+        imageAlt?: T;
+      };
+  profile?:
+    | T
+    | {
+        title?: T;
+        items?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+      };
+  treatment?:
+    | T
+    | {
+        title?: T;
+        paragraphs?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+      };
+  benefits?:
+    | T
+    | {
+        scriptTitle?: T;
+        title?: T;
+        items?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              icon?: T;
+              id?: T;
+            };
+      };
+  closingCta?:
+    | T
+    | {
+        title?: T;
+        text?: T;
+        primaryLabel?: T;
+        primaryHref?: T;
+        secondaryLabel?: T;
+        secondaryHref?: T;
       };
   updatedAt?: T;
   createdAt?: T;
