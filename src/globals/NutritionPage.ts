@@ -36,6 +36,7 @@ export const NutritionPage: GlobalConfig = {
         {
           name: 'backgroundImage',
           type: 'upload',
+          index: false,
           relationTo: 'media',
         },
         {
@@ -100,6 +101,7 @@ export const NutritionPage: GlobalConfig = {
         {
           name: 'image',
           type: 'upload',
+          index: false,
           relationTo: 'media',
         },
         {

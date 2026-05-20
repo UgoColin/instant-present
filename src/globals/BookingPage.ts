@@ -26,6 +26,7 @@ export const BookingPage: GlobalConfig = {
         {
           name: 'backgroundImage',
           type: 'upload',
+          index: false,
           relationTo: 'media',
         },
         {

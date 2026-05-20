@@ -26,6 +26,7 @@ export const RitualsPage: GlobalConfig = {
         {
           name: 'backgroundImage',
           type: 'upload',
+          index: false,
           relationTo: 'media',
         },
         {
@@ -99,6 +100,7 @@ export const RitualsPage: GlobalConfig = {
             {
               name: 'image',
               type: 'upload',
+              index: false,
               relationTo: 'media',
             },
             {

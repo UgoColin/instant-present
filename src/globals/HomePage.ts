@@ -46,6 +46,7 @@ export const HomePage: GlobalConfig = {
         {
           name: 'backgroundImage',
           type: 'upload',
+          index: false,
           relationTo: 'media',
         },
         {
@@ -84,6 +85,7 @@ export const HomePage: GlobalConfig = {
         {
           name: 'image',
           type: 'upload',
+          index: false,
           relationTo: 'media',
         },
         {
@@ -151,6 +153,7 @@ export const HomePage: GlobalConfig = {
             {
               name: 'image',
               type: 'upload',
+              index: false,
               relationTo: 'media',
             },
             {
@@ -234,6 +237,7 @@ export const HomePage: GlobalConfig = {
         {
           name: 'image',
           type: 'upload',
+          index: false,
           relationTo: 'media',
         },
         {
@@ -272,6 +276,7 @@ export const HomePage: GlobalConfig = {
         {
           name: 'image',
           type: 'upload',
+          index: false,
           relationTo: 'media',
         },
         {

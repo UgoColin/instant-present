@@ -28,6 +28,8 @@ fi
 cd "$APP_DIR"
 
 npm ci --include=dev
+npm run repair:sqlite-globals
+npm run ensure:globals
 npm run generate:importmap
 rm -rf .next
 npm run build

@@ -31,6 +31,7 @@ export const SignatureRitualPage: GlobalConfig = {
         {
           name: 'backgroundImage',
           type: 'upload',
+          index: false,
           relationTo: 'media',
         },
         {
@@ -105,6 +106,7 @@ export const SignatureRitualPage: GlobalConfig = {
         {
           name: 'image',
           type: 'upload',
+          index: false,
           relationTo: 'media',
         },
         {

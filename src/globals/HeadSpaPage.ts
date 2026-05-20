@@ -26,6 +26,7 @@ export const HeadSpaPage: GlobalConfig = {
         {
           name: 'backgroundImage',
           type: 'upload',
+          index: false,
           relationTo: 'media',
         },
         {
@@ -99,6 +100,7 @@ export const HeadSpaPage: GlobalConfig = {
             {
               name: 'image',
               type: 'upload',
+              index: false,
               relationTo: 'media',
             },
             {
