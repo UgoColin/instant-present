@@ -21,6 +21,14 @@ const resolveSQLitePath = (url: string): string => {
   return path.resolve(process.cwd(), url)
 }
 
+const redactPasswordFromPostgresUrl = (url: string): string => {
+  const parsed = new URL(url)
+
+  parsed.password = ''
+
+  return parsed.toString()
+}
+
 const ensureEnv = (name: string, value: string | undefined): string => {
   if (!value) {
     throw new Error(`Missing required environment variable: ${name}`)
@@ -33,12 +41,13 @@ const run = async (): Promise<void> => {
   const sqliteUrl = ensureEnv('SQLITE_DATABASE_URL', sqliteDatabaseUrl)
   const postgresUrl = ensureEnv('POSTGRES_DATABASE_URL or DATABASE_URL', postgresDatabaseUrl)
   const sqlitePath = resolveSQLitePath(sqliteUrl)
+  const pgloaderPostgresUrl = redactPasswordFromPostgresUrl(postgresUrl)
 
   await fs.mkdir(path.dirname(outputPath), { recursive: true })
 
   const loadFile = `LOAD DATABASE
      FROM sqlite://${sqlitePath}
-     INTO ${postgresUrl}
+     INTO ${pgloaderPostgresUrl}
 
  WITH data only, create no tables, truncate, reset sequences, downcase identifiers
 
@@ -55,10 +64,10 @@ const run = async (): Promise<void> => {
   console.log('Recommended order:')
   console.log('1. Point DATABASE_URL to PostgreSQL')
   console.log('2. Run npm run ensure:globals once to let Payload create the schema')
-  console.log(`3. Run pgloader ${outputPath}`)
+  console.log(`3. Run PGPASSWORD='your-raw-postgres-password' pgloader ${outputPath}`)
   console.log('')
   console.log('Next step:')
-  console.log(`pgloader ${outputPath}`)
+  console.log(`PGPASSWORD='your-raw-postgres-password' pgloader ${outputPath}`)
 }
 
 void run().catch((error) => {
