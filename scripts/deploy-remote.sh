@@ -6,7 +6,6 @@ APP_ROOT="/var/www/instant-present"
 APP_DIR="$APP_ROOT/app"
 SHARED_DIR="$APP_ROOT/shared"
 BACKUP_DIR="$SHARED_DIR/backups"
-DB_FILE="$SHARED_DIR/instant-present.db"
 MEDIA_DIR="$SHARED_DIR/media"
 ENV_FILE="$SHARED_DIR/.env"
 
@@ -20,16 +19,10 @@ fi
 ln -sfn "$ENV_FILE" "$APP_DIR/.env"
 ln -sfn "$MEDIA_DIR" "$APP_DIR/media"
 
-if [ -f "$DB_FILE" ]; then
-  cp "$DB_FILE" "$BACKUP_DIR/instant-present-$(date +%Y%m%d-%H%M%S).db"
-  ln -sfn "$DB_FILE" "$APP_DIR/instant-present.db"
-fi
-
 cd "$APP_DIR"
 
 npm ci --include=dev
 npx pm2 stop instant-present || true
-npm run repair:sqlite-globals
 npm run ensure:globals
 npm run generate:importmap
 rm -rf .next

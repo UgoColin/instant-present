@@ -46,7 +46,7 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
   }, [isMobileMenuOpen])
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-brand-cream shadow-md">
+    <header className="sticky top-0 z-50 w-full border-b border-brand-rose/15 bg-brand-blush shadow-md">
       <div className="relative mx-auto min-h-[5.5rem] w-full px-3 py-1.5 sm:min-h-[6rem] sm:px-5 lg:px-6">
         <Link
           className="absolute left-3 top-1/2 flex -translate-y-1/2 items-center sm:left-5 lg:left-6"
@@ -95,7 +95,7 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
                   </Link>
 
                   {item.submenu?.length ? (
-                    <div className="invisible absolute left-0 mt-2 w-56 origin-top-left border border-brand-rose/20 bg-brand-cream opacity-0 shadow-lg transition-all duration-300 group-hover:visible group-hover:opacity-100">
+                    <div className="invisible absolute left-0 mt-2 w-56 origin-top-left border border-brand-rose/20 bg-brand-blush opacity-0 shadow-lg transition-all duration-300 group-hover:visible group-hover:opacity-100">
                       <div className="py-2">
                         {item.submenu.map((subItem) => (
                           <Link
@@ -130,7 +130,7 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
 
       <div
         className={[
-          'absolute left-0 top-full w-full bg-brand-cream shadow-xl transition-all duration-300 xl:hidden',
+          'absolute left-0 top-full w-full border-t border-brand-rose/15 bg-brand-blush shadow-xl transition-all duration-300 xl:hidden',
           isMobileMenuOpen
             ? 'visible max-h-[calc(100dvh-80px)] overflow-y-auto pt-4 pb-[calc(env(safe-area-inset-bottom)+5rem)] opacity-100'
             : 'invisible max-h-0 overflow-hidden py-0 opacity-0',
