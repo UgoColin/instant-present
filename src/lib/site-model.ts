@@ -231,6 +231,7 @@ export type BookingPageData = {
     imageFrontAlt: string
     introParagraph: string
     orderTitle: string
+    phoneLabel: string
     scriptTitle: string
     title: string
   }

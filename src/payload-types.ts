@@ -1453,6 +1453,7 @@ export interface BookingPage {
     introParagraph?: string | null;
     detailsParagraph?: string | null;
     orderTitle?: string | null;
+    phoneLabel?: string | null;
     emailLabel?: string | null;
     facebookLabel?: string | null;
     formLabel?: string | null;
@@ -2137,6 +2138,7 @@ export interface BookingPageSelect<T extends boolean = true> {
         introParagraph?: T;
         detailsParagraph?: T;
         orderTitle?: T;
+        phoneLabel?: T;
         emailLabel?: T;
         facebookLabel?: T;
         formLabel?: T;

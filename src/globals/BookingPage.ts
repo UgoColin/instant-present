@@ -209,6 +209,11 @@ export const BookingPage: GlobalConfig = {
           defaultValue: defaultBookingPage.giftCard.orderTitle,
         },
         {
+          name: 'phoneLabel',
+          type: 'text',
+          defaultValue: defaultBookingPage.giftCard.phoneLabel,
+        },
+        {
           name: 'emailLabel',
           type: 'text',
           defaultValue: defaultBookingPage.giftCard.emailLabel,

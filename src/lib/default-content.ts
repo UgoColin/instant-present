@@ -163,15 +163,16 @@ export const defaultBookingPage: BookingPageData = {
   },
   giftCard: {
     detailsParagraph:
-      'Pour la préparer, il suffit de me contacter avec le prénom de la personne, la prestation souhaitée ou le montant à offrir. Je vous guiderai ensuite pour la remise et le règlement.',
+      'Pour préparer votre carte cadeau, il suffit de me contacter avec :\nLe nom et prénom de la personne\nLe soin souhaité ou le montant à offrir\nLe prénom de la personne qui offre',
     emailLabel: 'Par e-mail',
     facebookLabel: 'Via Facebook',
     formLabel: 'Ou directement via le formulaire de cette page.',
     imageBackAlt: 'Carte cadeau Instant Présent - verso',
     imageFrontAlt: 'Carte cadeau Instant Présent - recto',
     introParagraph:
-      'Vous pouvez offrir une carte cadeau pour un soin, un rituel ou une parenthèse bien-être personnalisée. C’est une jolie attention pour un anniversaire, une naissance, une fête ou simplement pour faire plaisir.',
+      'Vous pouvez choisir un soin, un rituel ou le montant de votre choix.\n\nLes cartes cadeaux sont à récupérer directement sur place.',
     orderTitle: 'Commander une carte cadeau',
+    phoneLabel: 'Par téléphone',
     scriptTitle: 'Offrir un moment',
     title: 'La carte cadeau',
   },

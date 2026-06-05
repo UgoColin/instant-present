@@ -112,11 +112,13 @@ function FieldError({ message }: { message?: string }) {
 function GiftCardPreviewSection({
   content,
   email,
+  phone,
   facebookLinkLabel,
   facebookUrl,
 }: {
   content: BookingPageData['giftCard']
   email: string
+  phone: string
   facebookLinkLabel: string
   facebookUrl: string
 }) {
@@ -136,10 +138,10 @@ function GiftCardPreviewSection({
               <h2 className="mb-6 font-subtitle text-3xl text-brand-forest md:text-4xl">
                 {content.title}
               </h2>
-              <p className="text-base leading-8 text-brand-sage">
+              <p className="whitespace-pre-line text-base leading-8 text-brand-sage">
                 {content.introParagraph}
               </p>
-              <p className="mt-5 text-base leading-8 text-brand-sage">
+              <p className="mt-5 whitespace-pre-line text-base leading-8 text-brand-sage">
                 {content.detailsParagraph}
               </p>
 
@@ -148,6 +150,9 @@ function GiftCardPreviewSection({
                   {content.orderTitle}
                 </p>
                 <div className="mt-4 space-y-3 text-sm leading-7 text-brand-forest">
+                  <p>
+                    {content.phoneLabel} : {phone}
+                  </p>
                   <p>
                     {content.emailLabel} : {email}
                   </p>
@@ -605,6 +610,7 @@ export function BookingPageContent({ content, siteSettings }: BookingPageContent
       <GiftCardPreviewSection
         content={content.giftCard}
         email={siteSettings.contact.email}
+        phone={siteSettings.contact.phone}
         facebookLinkLabel={content.reservation.facebookLabel}
         facebookUrl={content.reservation.facebookUrl}
       />

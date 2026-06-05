@@ -416,6 +416,7 @@ const normalizeBookingPage = (data?: BookingPage | null): BookingPageData => ({
     imageFrontAlt: data?.giftCard?.imageFrontAlt || defaultBookingPage.giftCard.imageFrontAlt,
     introParagraph: data?.giftCard?.introParagraph || defaultBookingPage.giftCard.introParagraph,
     orderTitle: data?.giftCard?.orderTitle || defaultBookingPage.giftCard.orderTitle,
+    phoneLabel: data?.giftCard?.phoneLabel || defaultBookingPage.giftCard.phoneLabel,
     scriptTitle: data?.giftCard?.scriptTitle || defaultBookingPage.giftCard.scriptTitle,
     title: data?.giftCard?.title || defaultBookingPage.giftCard.title,
   },
