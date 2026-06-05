@@ -14,7 +14,7 @@ export const defaultSiteSettings: SiteSettingsData = {
   },
   contact: {
     address: '2 Rue de la Tranelle\n59249 Aubers',
-    email: 'kvalquenart@gmail.com',
+    email: 'krystel.linstantpresent@gmail.com',
     phone: '06 61 85 56 89',
   },
   footerDescription:
