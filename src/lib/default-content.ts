@@ -215,8 +215,8 @@ export const defaultBookingPage: BookingPageData = {
 
 export const defaultHomePage: HomePageData = {
   about: {
-    imageAlt: 'Krystel praticienne bien-être',
-    imageUrl: '/site-images/home-about-krystel.jpg',
+    imageAlt: 'Portrait de Krystel dans son cabinet',
+    imageUrl: '/site-images/krystel-about.jpg',
     paragraphs: [
       'Je m’appelle Krystel, praticienne en bien-être, passionnée par l’écoute du corps et l’accompagnement global de la personne.',
       "Depuis plus de 20 ans, j’exerce en tant qu’Auxiliaire de Puériculture, en maternité, pédiatrie et néonatalogie. C'est un métier profondément humain qui m’a appris l’importance du toucher, de la présence et de l’écoute.",
@@ -501,8 +501,8 @@ export const defaultSignatureRitualPage: SignatureRitualPageData = {
     title: 'Mon soin signature\nRituel Esprit',
   },
   overview: {
-    imageAlt: 'Ambiance du Rituel Esprit',
-    imageUrl: '/site-images/wellness-oils.jpg',
+    imageAlt: 'Portrait de Krystel pour le Rituel Esprit',
+    imageUrl: '/site-images/krystel-rituel-esprit.jpg',
     paragraphs: [
       'Ce soin signature est une véritable invitation à ralentir, à vous déposer et à vous reconnecter profondément à vous-même.',
       'À travers un toucher conscient, des gestes fluides et une présence attentive, ce rituel agit à la fois sur le corps, le mental et l’énergie.',
@@ -664,8 +664,8 @@ export const defaultIntuitiveMassagePage: WellnessServiceDetailPageData = {
     title: 'Massage Intuitif',
   },
   overview: {
-    imageAlt: 'Massage intuitif enveloppant',
-    imageUrl: '/site-images/wellness-intuitive.jpg',
+    imageAlt: 'Portrait de Krystel dans une ambiance douce et apaisante',
+    imageUrl: '/site-images/krystel-massage-intuitif.jpg',
     paragraphs: [
       'Un massage sur-mesure, guidé par l’écoute du corps, avec des gestes enveloppants et adaptés à vos besoins du moment.',
       'Chaque séance se construit dans l’instant, selon vos tensions, votre énergie et ce qui a besoin d’être accueilli. C’est un soin profondément intuitif, pensé pour vous aider à vous reconnecter à vous-même.',
@@ -2003,8 +2003,8 @@ export const defaultNutritionPage: WellnessServiceDetailPageData = {
     title: 'Nutrition & Coaching',
   },
   overview: {
-    imageAlt: 'Approche globale nutrition et équilibre de vie',
-    imageUrl: '/site-images/wellness-intuitive.jpg',
+    imageAlt: 'Portrait de Krystel pour la page nutrition et coaching',
+    imageUrl: '/site-images/image3.jpg',
     paragraphs: [
       'Parce que le bien-être ne passe pas uniquement par le corps, mais aussi par l’alimentation, les habitudes de vie et l’équilibre intérieur, je vous propose un accompagnement global, adapté à vos besoins et à votre rythme.',
       'Je vous propose un suivi personnalisé, basé sur l’écoute, la bienveillance et le respect de votre rythme. Chaque accompagnement est unique, en fonction de vos objectifs, de votre mode de vie et de vos besoins.',

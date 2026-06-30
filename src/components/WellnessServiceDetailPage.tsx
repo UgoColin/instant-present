@@ -16,6 +16,11 @@ const benefitIcons = {
 } as const
 
 export function WellnessServiceDetailPage({ content }: WellnessServiceDetailPageProps) {
+  const isNutritionPage = content.slug === 'nutrition-coaching'
+  const hasPortraitOverview = isNutritionPage || content.slug === 'massage-intuitif'
+  const hasMaternityIllustration =
+    content.slug === 'massage-prenatal' || content.slug === 'massage-bebe'
+
   return (
     <div className="overflow-x-hidden bg-brand-cream">
       <section className="relative flex min-h-[450px] items-center justify-center overflow-hidden md:min-h-[60vh]">
@@ -98,8 +103,12 @@ export function WellnessServiceDetailPage({ content }: WellnessServiceDetailPage
         <img
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute right-[-3rem] top-1/2 z-0 w-[19rem] -translate-y-1/2 opacity-[0.12] md:right-[-2rem] md:w-[24rem] lg:right-0 lg:w-[27rem]"
-          src="/illustrations/illu-flyer.svg"
+          className="pointer-events-none absolute right-[-3rem] top-1/2 z-0 w-[19rem] -translate-y-1/2 opacity-[0.1] md:right-[-2rem] md:w-[24rem] lg:right-0 lg:w-[27rem]"
+          src={
+            hasMaternityIllustration
+              ? '/illustrations/illu-flyer.svg'
+              : '/illustrations/illu-flow.svg'
+          }
         />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-16 lg:flex-row">
@@ -121,12 +130,34 @@ export function WellnessServiceDetailPage({ content }: WellnessServiceDetailPage
 
             <div className="w-full lg:w-1/2">
               <FadeInSection delay={200}>
-                <div className="overflow-hidden rounded-t-full border-8 border-white shadow-xl">
-                  <img
-                    alt={content.overview.imageAlt}
-                    className="h-[500px] w-full object-cover"
-                    src={content.overview.imageUrl}
-                  />
+                <div className="relative">
+                  <div
+                    className={[
+                      'overflow-hidden rounded-t-full border-8 border-white shadow-xl',
+                      hasPortraitOverview
+                        ? 'mx-auto max-w-[21rem] md:max-w-[24rem] lg:mx-auto lg:max-w-[22rem] xl:max-w-[24rem]'
+                        : '',
+                    ].join(' ')}
+                  >
+                    <img
+                      alt={content.overview.imageAlt}
+                      className={[
+                        'w-full object-cover',
+                        hasPortraitOverview
+                          ? 'h-[390px] md:h-[450px] lg:h-[420px] xl:h-[450px]'
+                          : 'h-[500px]',
+                      ].join(' ')}
+                      src={content.overview.imageUrl}
+                    />
+                  </div>
+
+                  {hasPortraitOverview ? (
+                    <>
+                      <div className="absolute -bottom-8 right-4 z-0 h-32 w-32 rounded-full bg-brand-rose/20 md:h-40 md:w-40" />
+                      <div className="absolute -left-3 top-8 z-0 h-20 w-20 rounded-full bg-brand-forest/10 md:h-24 md:w-24" />
+                      <div className="absolute right-0 top-[-1.5rem] z-0 h-14 w-14 rounded-full bg-[#e8d7c9] md:h-16 md:w-16" />
+                    </>
+                  ) : null}
                 </div>
               </FadeInSection>
             </div>
@@ -138,8 +169,8 @@ export function WellnessServiceDetailPage({ content }: WellnessServiceDetailPage
         <img
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute left-[-3rem] top-24 z-0 w-[18rem] opacity-[0.12] md:left-[-2rem] md:w-[22rem] lg:left-0 lg:w-[26rem]"
-          src="/illustrations/illu-logo.svg"
+          className="pointer-events-none absolute left-[-4rem] top-24 z-0 w-[17rem] opacity-[0.1] md:left-[-2rem] md:w-[21rem] lg:left-0 lg:w-[24rem]"
+          src="/illustrations/illu-line-figure.svg"
         />
         <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <FadeInSection>

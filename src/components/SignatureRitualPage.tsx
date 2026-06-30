@@ -112,8 +112,8 @@ export function SignatureRitualPage({ content }: SignatureRitualPageProps) {
         <img
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute right-[-3rem] top-1/2 z-0 w-[19rem] -translate-y-1/2 opacity-[0.12] md:right-[-2rem] md:w-[24rem] lg:right-0 lg:w-[27rem]"
-          src="/illustrations/illu-flyer.svg"
+          className="pointer-events-none absolute right-[-3rem] top-1/2 z-0 w-[18rem] -translate-y-1/2 opacity-[0.1] md:right-[-1rem] md:w-[22rem] lg:right-0 lg:w-[25rem]"
+          src="/illustrations/illu-flow.svg"
         />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-16 lg:flex-row">
@@ -135,12 +135,16 @@ export function SignatureRitualPage({ content }: SignatureRitualPageProps) {
 
             <div className="w-full lg:w-1/2">
               <FadeInSection delay={200}>
-                <div className="overflow-hidden rounded-t-full border-8 border-white shadow-xl">
-                  <img
-                    alt={content.overview.imageAlt}
-                    className="h-[500px] w-full object-cover"
-                    src={content.overview.imageUrl}
-                  />
+                <div className="relative">
+                  <div className="mx-auto max-w-[21rem] overflow-hidden rounded-t-full border-8 border-white shadow-xl md:max-w-[24rem] lg:mx-auto lg:max-w-[22rem] xl:max-w-[24rem]">
+                    <img
+                      alt={content.overview.imageAlt}
+                      className="h-[390px] w-full object-cover md:h-[450px] lg:h-[420px] xl:h-[450px]"
+                      src={content.overview.imageUrl}
+                    />
+                  </div>
+                  <div className="absolute -bottom-8 right-4 z-0 h-32 w-32 rounded-full bg-brand-rose/20 md:h-40 md:w-40" />
+                  <div className="absolute -left-3 top-8 z-0 h-20 w-20 rounded-full bg-brand-forest/10 md:h-24 md:w-24" />
                 </div>
               </FadeInSection>
             </div>
@@ -152,8 +156,8 @@ export function SignatureRitualPage({ content }: SignatureRitualPageProps) {
         <img
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute left-[-3rem] top-24 z-0 w-[18rem] opacity-[0.12] md:left-[-2rem] md:w-[22rem] lg:left-0 lg:w-[26rem]"
-          src="/illustrations/illu-logo.svg"
+          className="pointer-events-none absolute left-[-4rem] top-24 z-0 w-[17rem] opacity-[0.1] md:left-[-2rem] md:w-[21rem] lg:left-0 lg:w-[24rem]"
+          src="/illustrations/illu-line-figure.svg"
         />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">

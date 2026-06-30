@@ -59,8 +59,8 @@ export function WellnessPageContent({ content }: WellnessPageContentProps) {
         <img
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute right-[-3rem] top-1/2 z-0 w-[19rem] -translate-y-1/2 opacity-[0.12] md:right-[-2rem] md:w-[24rem] lg:right-0 lg:w-[27rem]"
-          src="/illustrations/illu-flyer.svg"
+          className="pointer-events-none absolute right-[-3rem] top-1/2 z-0 w-[18rem] -translate-y-1/2 opacity-[0.09] md:right-[-1rem] md:w-[22rem] lg:right-0 lg:w-[25rem]"
+          src="/illustrations/illu-flow.svg"
         />
         <div className="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <FadeInSection>

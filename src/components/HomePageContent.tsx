@@ -20,11 +20,6 @@ export function HomePageContent({ content }: HomePageContentProps) {
       src: content.hero.backgroundImageUrl,
     },
     {
-      alt: 'Cabinet bien-être prêt à accueillir les clientes',
-      objectPosition: 'center center',
-      src: '/site-images/contact-cabinet-hero.jpg',
-    },
-    {
       alt: 'Ambiance apaisante du cabinet',
       objectPosition: 'center center',
       src: '/site-images/contact-cabinet.jpg',
@@ -87,22 +82,22 @@ export function HomePageContent({ content }: HomePageContentProps) {
         <img
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute right-[-3rem] top-1/2 z-0 w-[19rem] -translate-y-1/2 opacity-[0.14] md:right-[-2rem] md:w-[23rem] lg:right-0 lg:w-[27rem]"
-          src="/illustrations/illu-flyer.svg"
+          className="pointer-events-none absolute right-[-3rem] top-1/2 z-0 w-[18rem] -translate-y-1/2 opacity-[0.1] md:right-[-1rem] md:w-[22rem] lg:right-0 lg:w-[26rem]"
+          src="/illustrations/illu-flow.svg"
         />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="relative z-10 flex flex-col items-center gap-16 lg:flex-row">
             <div className="relative w-full lg:w-1/2">
               <FadeInSection>
-                <div className="relative z-10 overflow-hidden rounded-t-full border-8 border-brand-cream">
+                <div className="relative z-10 mx-auto max-w-[21rem] overflow-hidden rounded-t-full border-8 border-brand-cream md:max-w-[24rem] lg:mr-auto lg:ml-0 lg:max-w-[22rem] xl:max-w-[24rem]">
                   <img
                     alt={content.about.imageAlt}
-                    className="h-[600px] w-full object-cover"
+                    className="h-[390px] w-full object-cover md:h-[450px] lg:h-[420px] xl:h-[450px]"
                     src={content.about.imageUrl}
                   />
                 </div>
-                <div className="absolute -bottom-8 -right-8 z-0 h-32 w-32 rounded-full bg-brand-rose opacity-20" />
-                <div className="absolute -left-8 -top-8 z-0 h-24 w-24 rounded-full bg-brand-forest opacity-10" />
+                <div className="absolute -bottom-10 right-0 z-0 h-44 w-44 rounded-full bg-brand-rose opacity-20 md:h-52 md:w-52" />
+                <div className="absolute -left-4 -top-10 z-0 h-30 w-30 rounded-full bg-brand-forest opacity-10 md:h-40 md:w-40" />
               </FadeInSection>
             </div>
 
@@ -150,8 +145,8 @@ export function HomePageContent({ content }: HomePageContentProps) {
         <img
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute right-[-3rem] top-10 z-0 w-[18rem] opacity-[0.12] md:right-[-1rem] md:w-[22rem] lg:right-0 lg:w-[26rem]"
-          src="/illustrations/illu-flyer.svg"
+          className="pointer-events-none absolute right-[-4rem] top-8 z-0 w-[17rem] opacity-[0.1] md:right-[-2rem] md:w-[21rem] lg:right-0 lg:w-[24rem]"
+          src="/illustrations/illu-line-figure.svg"
         />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">

@@ -415,8 +415,8 @@ export function BookingPageContent({ content, siteSettings }: BookingPageContent
         <img
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute right-[-3rem] top-28 z-0 w-[18rem] opacity-[0.12] md:right-[-1rem] md:w-[22rem] lg:right-0 lg:w-[26rem]"
-          src="/illustrations/illu-flyer.svg"
+          className="pointer-events-none absolute right-[-4rem] top-20 z-0 w-[17rem] opacity-[0.1] md:right-[-2rem] md:w-[21rem] lg:right-0 lg:w-[24rem]"
+          src="/illustrations/illu-line-figure.svg"
         />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-16 lg:flex-row">
