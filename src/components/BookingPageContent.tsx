@@ -289,6 +289,15 @@ export function BookingPageContent({ content, siteSettings }: BookingPageContent
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
+    if (process.env.NEXT_PUBLIC_STATIC_PREVIEW === 'true') {
+      setToast({
+        message:
+          'Prévisualisation : le formulaire est désactivé. Contactez directement la praticienne.',
+        type: 'error',
+      })
+      return
+    }
+
     const nextErrors = validateContactForm(formValues)
     setFieldErrors(nextErrors)
 
@@ -485,6 +494,15 @@ export function BookingPageContent({ content, siteSettings }: BookingPageContent
                     {content.form.title}
                   </h3>
 
+                  {process.env.NEXT_PUBLIC_STATIC_PREVIEW === 'true' && (
+                    <p
+                      className="mb-6 rounded-lg bg-brand-cream p-4 text-sm text-brand-forest"
+                      role="note"
+                    >
+                      Prévisualisation : ce formulaire ne transmet aucune demande. Vous pouvez
+                      contacter directement la praticienne.
+                    </p>
+                  )}
                   <form className="space-y-6" noValidate onSubmit={handleSubmit}>
                     <input
                       autoComplete="off"

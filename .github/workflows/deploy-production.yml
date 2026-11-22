@@ -15,6 +15,7 @@ permissions:
 
 jobs:
   deploy:
+    if: github.event_name == 'workflow_dispatch' || vars.ENABLE_VM_DEPLOY == 'true'
     runs-on: ubuntu-latest
 
     steps:

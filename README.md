@@ -1,5 +1,12 @@
 # Instant Present
 
+## Prévisualisation GitHub Pages
+
+Le build statique et la CI sont prêts : `npm run build:preview`, puis `npm run check:preview`.
+Consulter [le guide GitHub Pages](docs/github-pages-preview.md) pour activer Pages, pousser les sources et obtenir le lien de prévisualisation.
+
+Cette version utilise les contenus du code, sans CMS ni envoi du formulaire. Le déploiement automatique VM est désormais activé uniquement avec la variable `ENABLE_VM_DEPLOY=true`.
+
 ## Checklist avant mise en ligne
 
 Certaines informations juridiques et de production doivent encore être confirmées hors du site. Elles ne sont plus affichées sur les pages publiques, mais elles doivent être vérifiées avant la mise en ligne finale.
